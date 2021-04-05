@@ -1,0 +1,35 @@
+fonts:
+  inputs: SWDemoApp/Resources/Fonts
+  outputs:
+    templateName: swift5
+    output: SWDemoApp/Resources/Fonts/Fonts.swift
+    params:
+        publicAccess: public
+        
+xcassets:
+  - inputs:
+    - SWDemoApp/Resources/Assets/Images.xcassets
+    - SWDemoApp/Resources/Assets/Colors.xcassets
+    outputs:
+      - templateName: swift5
+        output: SWDemoApp/Resources/Assets/Assets.swift
+        params:
+            publicAccess: public
+              
+  - inputs:
+    - SWDemoApp/Resources/Assets/Images.xcassets
+    outputs:
+      - templatePath: SwiftGenTemplates/images.stencil
+        output: SWDemoApp/Resources/Assets/UIImage+Images.swift
+        params:
+            publicAccess: public
+            
+  - inputs:
+    - SWDemoApp/Resources/Assets/Colors.xcassets
+    outputs:
+      - templatePath: SwiftGenTemplates/colors.stencil
+        output: SWDemoApp/Resources/Assets/UIColor+Colors.swift
+        params:
+            publicAccess: public
+
+

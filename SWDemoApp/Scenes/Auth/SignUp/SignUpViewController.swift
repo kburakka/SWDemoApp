@@ -194,6 +194,9 @@ final class SignUpViewController: BaseViewController<SignUpViewModel> {
         let button = BaseButton(title: "Continue",
                                 titleFont: .font(.omnesRegular, size: .medium),
                                 titleColor: .appWhite)
+        button.addTarget(self,
+                         action: #selector(continueAction),
+                         for: .touchUpInside)
         button.clipsToBounds = true
         return button
     }()
@@ -218,7 +221,7 @@ final class SignUpViewController: BaseViewController<SignUpViewModel> {
         titleLabel.edgesToSuperview(excluding: .bottom)
         titleLabel.height(70)
         
-        scrollView.edgesToSuperview(insets: .init(top: 30, left: 30, bottom: 30, right: 30), usingSafeArea: true)
+        scrollView.edgesToSuperview(insets: .init(top: 30, left: 20, bottom: 0, right: 20), usingSafeArea: false)
         containerView.edgesToSuperview()
         containerView.widthToSuperview()
         
@@ -276,8 +279,23 @@ extension SignUpViewController: UITextFieldDelegate {
     }
 }
 
+// MARK: - Action
+@objc
 extension SignUpViewController {
-    @objc func onCheckBoxValueChange(_ sender: CheckBox) {
-        print(sender.isChecked)
+    func onCheckBoxValueChange(_ sender: CheckBox) {
+        switch sender {
+        case termsCheckBox:
+            print("terms \(sender.isChecked)")
+        case privacyCheckBox:
+            print("privacy \(sender.isChecked)")
+        case memberCheckBox:
+            print("member \(sender.isChecked)")
+        default:
+            print("none")
+        }
+    }
+    
+    func continueAction() {
+        viewModel.continueButtonAction()
     }
 }

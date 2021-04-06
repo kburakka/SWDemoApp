@@ -14,6 +14,10 @@ public extension UIColor {
       return Asset.Colors.appBlack.color
   }
 
+  static var appConcrete: UIColor {
+      return Asset.Colors.appConcrete.color
+  }
+
   static var appCyan: UIColor {
       return Asset.Colors.appCyan.color
   }

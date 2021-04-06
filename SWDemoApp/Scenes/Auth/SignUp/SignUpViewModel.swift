@@ -9,10 +9,14 @@ import Foundation
 
 protocol SignUpViewDataSource {}
 
-protocol SignUpViewEventSource {}
+protocol SignUpViewEventSource {
+    func continueButtonAction()
+}
 
 protocol SignUpViewProtocol: SignUpViewDataSource, SignUpViewEventSource {}
 
 final class SignUpViewModel: BaseViewModel<SignUpRouter>, SignUpViewProtocol {
-    
+    func continueButtonAction() {
+        router.pushCategories()
+    }
 }

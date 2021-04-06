@@ -44,8 +44,15 @@
 		B308E82B261B6EBA00E45656 /* omnes-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B308E828261B6EBA00E45656 /* omnes-regular.ttf */; };
 		B308E830261B6F3700E45656 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E82F261B6F3700E45656 /* UIView+Extension.swift */; };
 		B308E835261B7AC100E45656 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E834261B7AC100E45656 /* UIStackView+Extension.swift */; };
-		B308E83C261B814900E45656 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E83B261B814900E45656 /* AppTextField.swift */; };
-		B308E844261B965400E45656 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E843261B965300E45656 /* AppButton.swift */; };
+		B308E83C261B814900E45656 /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E83B261B814900E45656 /* BaseTextField.swift */; };
+		B308E844261B965400E45656 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E843261B965300E45656 /* BaseButton.swift */; };
+		B308E85B261BAE7800E45656 /* RegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E858261BAE7800E45656 /* RegisterRouter.swift */; };
+		B308E85C261BAE7800E45656 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E859261BAE7800E45656 /* RegisterViewController.swift */; };
+		B308E85D261BAE7800E45656 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E85A261BAE7800E45656 /* RegisterViewModel.swift */; };
+		B308E865261BAE9000E45656 /* RegisterRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E864261BAE9000E45656 /* RegisterRoute.swift */; };
+		B308E86A261C4F3600E45656 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E869261C4F3500E45656 /* UIImage+Extension.swift */; };
+		B308E870261C513E00E45656 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E86F261C513E00E45656 /* Closures.swift */; };
+		B308E87F261C5ECD00E45656 /* RegisterTopCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E87E261C5ECD00E45656 /* RegisterTopCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,8 +119,15 @@
 		B308E828261B6EBA00E45656 /* omnes-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "omnes-regular.ttf"; sourceTree = "<group>"; };
 		B308E82F261B6F3700E45656 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B308E834261B7AC100E45656 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
-		B308E83B261B814900E45656 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
-		B308E843261B965300E45656 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		B308E83B261B814900E45656 /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
+		B308E843261B965300E45656 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		B308E858261BAE7800E45656 /* RegisterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
+		B308E859261BAE7800E45656 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B308E85A261BAE7800E45656 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		B308E864261BAE9000E45656 /* RegisterRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRoute.swift; sourceTree = "<group>"; };
+		B308E869261C4F3500E45656 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		B308E86F261C513E00E45656 /* Closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
+		B308E87E261C5ECD00E45656 /* RegisterTopCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTopCard.swift; sourceTree = "<group>"; };
 		E294079B99E6FC024C8BA5E9 /* Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SWDemoApp-SWDemoAppUITests/Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7AE278F77EEBE64FAE1B4EE /* Pods_SWDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81DE28F58DD1078EE47A918 /* Pods_SWDemoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWDemoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +198,7 @@
 		B308E714261B231F00E45656 /* SWDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				B308E86E261C512E00E45656 /* Constants */,
 				B308E839261B812400E45656 /* CustomComponents */,
 				B308E7E4261B33FF00E45656 /* Extension */,
 				B308E769261B25BC00E45656 /* Router */,
@@ -224,6 +239,7 @@
 		B308E749261B234F00E45656 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B308E796261B2A8400E45656 /* Base */,
 				B308E77D261B29C200E45656 /* Auth */,
 				B308E720261B232000E45656 /* LaunchScreen.storyboard */,
 			);
@@ -288,7 +304,7 @@
 		B308E77D261B29C200E45656 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				B308E796261B2A8400E45656 /* Base */,
+				B308E857261BAE4A00E45656 /* Register */,
 				B308E77E261B29D000E45656 /* Login */,
 			);
 			path = Auth;
@@ -346,6 +362,7 @@
 				B308E7E5261B341300E45656 /* CALayer+Extension.swift */,
 				B308E82F261B6F3700E45656 /* UIView+Extension.swift */,
 				B308E834261B7AC100E45656 /* UIStackView+Extension.swift */,
+				B308E869261C4F3500E45656 /* UIImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -353,10 +370,38 @@
 		B308E839261B812400E45656 /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
-				B308E83B261B814900E45656 /* AppTextField.swift */,
-				B308E843261B965300E45656 /* AppButton.swift */,
+				B308E87D261C5E9B00E45656 /* Base */,
+				B308E87E261C5ECD00E45656 /* RegisterTopCard.swift */,
 			);
 			path = CustomComponents;
+			sourceTree = "<group>";
+		};
+		B308E857261BAE4A00E45656 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				B308E858261BAE7800E45656 /* RegisterRouter.swift */,
+				B308E859261BAE7800E45656 /* RegisterViewController.swift */,
+				B308E85A261BAE7800E45656 /* RegisterViewModel.swift */,
+				B308E864261BAE9000E45656 /* RegisterRoute.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		B308E86E261C512E00E45656 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				B308E86F261C513E00E45656 /* Closures.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		B308E87D261C5E9B00E45656 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B308E83B261B814900E45656 /* BaseTextField.swift */,
+				B308E843261B965300E45656 /* BaseButton.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		FED235B10BBC69F124A04BBF /* Pods */ = {
@@ -654,7 +699,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B308E85C261BAE7800E45656 /* RegisterViewController.swift in Sources */,
 				B308E830261B6F3700E45656 /* UIView+Extension.swift in Sources */,
+				B308E87F261C5ECD00E45656 /* RegisterTopCard.swift in Sources */,
 				B308E798261B2ACB00E45656 /* BaseViewController.swift in Sources */,
 				B308E777261B25EB00E45656 /* Animator.swift in Sources */,
 				B308E7E0261B315B00E45656 /* UIImage+Images.swift in Sources */,
@@ -665,8 +712,10 @@
 				B308E784261B29EC00E45656 /* LoginViewModel.swift in Sources */,
 				B308E773261B25EB00E45656 /* ModalTransition.swift in Sources */,
 				B308E778261B25EB00E45656 /* Router.swift in Sources */,
+				B308E85B261BAE7800E45656 /* RegisterRouter.swift in Sources */,
 				B308E779261B25EB00E45656 /* AppRouter.swift in Sources */,
 				B308E7DE261B315B00E45656 /* Assets.swift in Sources */,
+				B308E865261BAE9000E45656 /* RegisterRoute.swift in Sources */,
 				B308E7DF261B315B00E45656 /* UIColor+Colors.swift in Sources */,
 				B308E80B261B60A200E45656 /* UIFont+Extensions.swift in Sources */,
 				B308E782261B29EC00E45656 /* LoginRouter.swift in Sources */,
@@ -675,10 +724,13 @@
 				B308E803261B608100E45656 /* Fonts.swift in Sources */,
 				B308E783261B29EC00E45656 /* LoginViewController.swift in Sources */,
 				B308E774261B25EB00E45656 /* PlaceOnWindowTransition.swift in Sources */,
+				B308E85D261BAE7800E45656 /* RegisterViewModel.swift in Sources */,
+				B308E870261C513E00E45656 /* Closures.swift in Sources */,
 				B308E835261B7AC100E45656 /* UIStackView+Extension.swift in Sources */,
 				B308E78C261B2A0500E45656 /* LoginRoute.swift in Sources */,
-				B308E83C261B814900E45656 /* AppTextField.swift in Sources */,
-				B308E844261B965400E45656 /* AppButton.swift in Sources */,
+				B308E86A261C4F3600E45656 /* UIImage+Extension.swift in Sources */,
+				B308E83C261B814900E45656 /* BaseTextField.swift in Sources */,
+				B308E844261B965400E45656 /* BaseButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

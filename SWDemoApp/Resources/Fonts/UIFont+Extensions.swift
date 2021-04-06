@@ -25,13 +25,13 @@ public extension UIFont {
         /// 16
         case medium
         
-        /// 30
+        /// 20
         case large
         
-        /// 45
+        /// 30
         case xLarge
-        
-        /// 60
+
+        /// 45
         case xxLarge
         
         /// custom
@@ -42,9 +42,9 @@ public extension UIFont {
             case .xSmall:           return 6
             case .small:            return 10
             case .medium:           return 16
-            case .large:            return 30
-            case .xLarge:           return 45
-            case .xxLarge:          return 60
+            case .large:            return 20
+            case .xLarge:           return 30
+            case .xxLarge:          return 45
             case .custom(let size): return size
             }
         }

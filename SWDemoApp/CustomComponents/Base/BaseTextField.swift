@@ -1,5 +1,5 @@
 //
-//  AppTextField.swift
+//  BaseTextField.swift
 //  SWDemoApp
 //
 //  Created by Burak Kaya on 5.04.2021.
@@ -8,21 +8,25 @@
 import UIKit
 import TinyConstraints
 
-class AppTextField: UITextField {
+class BaseTextField: UITextField {
     private var multiplePlaceholderAttributes: [NSAttributedString.Key: Any] = [:]
-
+    var isShowPassword = false
+    let passwordButton = UIButton(type: .custom)
+    let showPasswordImage = UIImage.imgShowPassword.resize(targetSize: CGSize(width: 40, height: 30)).withRenderingMode(.alwaysTemplate)
+    let hidePasswordImage = UIImage.imgHidePassword.resize(targetSize: CGSize(width: 40, height: 30)).withRenderingMode(.alwaysTemplate)
+    
     // MARK: - Convenience Init
     convenience init(placeholderText: String? = nil,
                      placeholderColor: UIColor? = UIColor.appWhite.withAlphaComponent(0.5),
                      placeholderFont: UIFont? = .font(.omnesRegular, size: .medium),
-                     rightImage: UIImage? = nil,
+                     isPassword: Bool = false,
                      leftPadding: CGFloat? = 16.0,
                      textFont: UIFont? = .font(.omnesRegular, size: .medium),
                      textColor: UIColor? = .appWhite,
                      textAlignment: NSTextAlignment = .natural,
                      cornerRadius: CGFloat? = 23,
                      preferredHeight: CGFloat = 46,
-                     tintColor: UIColor? = .appWhite,
+                     tintColor: UIColor? = UIColor.appWhite.withAlphaComponent(0.5),
                      backgroundColor: UIColor = .clear,
                      borderWidth: CGFloat = 1,
                      borderColor: CGColor? = UIColor.appWhite.cgColor) {
@@ -30,7 +34,6 @@ class AppTextField: UITextField {
         self.autocapitalizationType = autocapitalizationType
         self.placeholderFont = placeholderFont
         self.placeholderColor = placeholderColor
-        self.rightImage = rightImage
         self.leftPadding = leftPadding
         self.font = textFont
         self.textColor = textColor
@@ -49,6 +52,14 @@ class AppTextField: UITextField {
         } else {
             self.attributedPlaceholder = nil
             self.placeholder = placeholderText
+        }
+        
+        if isPassword {
+            isSecureTextEntry = true
+            setImage()
+        } else {
+            rightViewMode = .never
+            rightView = nil
         }
     }
     
@@ -81,18 +92,6 @@ class AppTextField: UITextField {
     
     var leftPadding: CGFloat?
     
-    var rightImage: UIImage? {
-        get {
-            if let imageView: UIImageView = rightView as? UIImageView {
-                return imageView.image
-            }
-            return nil
-        }
-        set {
-            setImage(newValue)
-        }
-    }
-    
     var placeholderFont: UIFont? {
         get {
             return multiplePlaceholderAttributes[.font] as? UIFont
@@ -116,18 +115,29 @@ class AppTextField: UITextField {
     }
       
     // MARK: - Private Function
-    private func setImage(_ image: UIImage?) {
-        if let image = image {
-            let button = UIButton(type: .custom)
-            button.setImage(image, for: .normal)
-            button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
-            button.frame = CGRect(x: CGFloat(frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
+    private func setImage() {
+        passwordButton.tintColor = tintColor
+        passwordButton.setImage(showPasswordImage, for: .normal)
+        passwordButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -25, bottom: 0, right: 0)
+        passwordButton.frame = CGRect(x: CGFloat(frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
+        passwordButton.addTarget(self, action: #selector(passwordAction), for: .touchUpInside)
+        
+        rightView = passwordButton
+        rightViewMode = .always
+    }
+}
 
-            rightView = button
-            rightViewMode = .always
+// MARK: - Action
+@objc
+private extension BaseTextField {
+    func passwordAction() {
+        isShowPassword.toggle()
+        if isShowPassword {
+            isSecureTextEntry = false
+            passwordButton.setImage(showPasswordImage, for: .normal)
         } else {
-            rightViewMode = .never
-            rightView = nil
+            isSecureTextEntry = true
+            passwordButton.setImage(hidePasswordImage, for: .normal)
         }
     }
 }

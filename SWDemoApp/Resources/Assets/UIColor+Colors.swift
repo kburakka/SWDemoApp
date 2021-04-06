@@ -18,6 +18,10 @@ public extension UIColor {
       return Asset.Colors.appFuchsia.color
   }
 
+  static var appShaft: UIColor {
+      return Asset.Colors.appShaft.color
+  }
+
   static var appWhite: UIColor {
       return Asset.Colors.appWhite.color
   }

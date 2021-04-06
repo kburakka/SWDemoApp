@@ -27,36 +27,36 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .font(.omnesSemiBold, size: .large)
+        label.font = .font(.omnesSemiBold, size: .xLarge)
         label.textColor = .appWhite
         label.text = "Welcome!\nYou’ve been missed"
         label.numberOfLines = 2
         return label
     }()
     
-    private let emailTextField: AppTextField = {
-        let textField = AppTextField(placeholderText: "E-mail")
+    private let emailTextField: BaseTextField = {
+        let textField = BaseTextField(placeholderText: "E-mail")
         return textField
     }()
     
-    private let passwordTextfield: AppTextField = {
-        let textField = AppTextField(placeholderText: "Password", rightImage: .imgPassword)
+    private let passwordTextfield: BaseTextField = {
+        let textField = BaseTextField(placeholderText: "Password", isPassword: true)
         return textField
     }()
     
-    private let loginButton: AppButton = {
-        let button = AppButton(title: "Log in",
-                               titleFont: .font(.omnesSemiBold, size: .medium),
-                               titleColor: .appWhite,
-                               backgroundColor: UIColor.appWhite.withAlphaComponent(0.1))
+    private let loginButton: BaseButton = {
+        let button = BaseButton(title: "Log in",
+                                titleFont: .font(.omnesSemiBold, size: .medium),
+                                titleColor: .appWhite,
+                                backgroundColor: UIColor.appWhite.withAlphaComponent(0.1))
         return button
     }()
     
-    private let forgotButton: AppButton = {
-        let button = AppButton(title: "Forgot Password?",
-                               titleFont: .font(.omnesLight, size: .medium),
-                               titleColor: UIColor.appWhite.withAlphaComponent(0.6),
-                               backgroundColor: .clear)
+    private let forgotButton: BaseButton = {
+        let button = BaseButton(title: "Forgot Password?",
+                                titleFont: .font(.omnesLight, size: .medium),
+                                titleColor: UIColor.appWhite.withAlphaComponent(0.6),
+                                backgroundColor: .clear)
         return button
     }()
     
@@ -79,12 +79,15 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
         return view
     }()
     
-    private let registerButton: AppButton = {
-        let button = AppButton(title: "Register",
-                               titleFont: .font(.omnesRegular, size: .medium),
-                               titleColor: .appFuchsia,
-                               cornerRadius: 20,
-                               backgroundColor: .appWhite)
+    private let registerButton: BaseButton = {
+        let button = BaseButton(title: "Register",
+                                titleFont: .font(.omnesRegular, size: .medium),
+                                titleColor: .appFuchsia,
+                                cornerRadius: 20,
+                                backgroundColor: .appWhite)
+        button.addTarget(self,
+                         action: #selector(registerAction),
+                         for: .touchUpInside)
         return button
     }()
     
@@ -102,13 +105,16 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
         super.viewDidLoad()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        view.layer.insertSublayer(CALayer().appVericalGradient(frame: view.bounds), at: 0)
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func setupViews() {
-        view.layer.insertSublayer(CALayer().appVericalGradient(frame: view.bounds), at: 0)
         bottomView.addSubviews([registerLabel, registerButton])
         bodyView.addSubview(stackView)
         view.addSubviews([appIconImageView, descriptionLabel, bodyView, bottomView])
@@ -161,5 +167,13 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
         
         registerLabel.edgesToSuperview(excluding: .trailing, insets: .init(top: 7, left: 20, bottom: 7, right: 7))
         registerLabel.trailingToLeading(of: registerButton, offset: 7)
+    }
+}
+
+// MARK: - Action
+@objc
+private extension LoginViewController {
+    func registerAction() {
+        viewModel.registerButtonAction()
     }
 }

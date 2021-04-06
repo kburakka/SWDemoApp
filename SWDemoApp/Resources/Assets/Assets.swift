@@ -25,11 +25,15 @@ public enum Asset {
     public static let appBlack = ColorAsset(name: "appBlack")
     public static let appCyan = ColorAsset(name: "appCyan")
     public static let appFuchsia = ColorAsset(name: "appFuchsia")
+    public static let appShaft = ColorAsset(name: "appShaft")
     public static let appWhite = ColorAsset(name: "appWhite")
   }
   public enum Images {
     public static let appIcon = ImageAsset(name: "appIcon")
-    public static let imgPassword = ImageAsset(name: "imgPassword")
+    public static let imgBuilding = ImageAsset(name: "imgBuilding")
+    public static let imgHidePassword = ImageAsset(name: "imgHidePassword")
+    public static let imgShowPassword = ImageAsset(name: "imgShowPassword")
+    public static let imgUser = ImageAsset(name: "imgUser")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

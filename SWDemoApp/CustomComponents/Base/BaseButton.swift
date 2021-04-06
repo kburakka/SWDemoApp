@@ -27,7 +27,6 @@ class BaseButton: UIButton {
         
         setTitle(title, for: .normal)
         
-        setImage(image, for: .normal)
         
         tintColor = titleColor
         if let font = titleFont {
@@ -51,7 +50,10 @@ class BaseButton: UIButton {
         }
         
         if image != nil {
+            setImage(image, for: .normal)
             titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 12.0, bottom: 0.0, right: 0.0)
+        } else {
+            titleEdgeInsets = .zero
         }
     }
     

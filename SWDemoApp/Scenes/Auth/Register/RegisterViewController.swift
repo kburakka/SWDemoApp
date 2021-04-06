@@ -39,13 +39,12 @@ final class RegisterViewController: BaseViewController<RegisterViewModel> {
         let button = BaseButton(title: "I own a business",
                                 image: .imgBuilding,
                                 titleFont: .font(.omnesRegular, size: .medium),
-                                titleColor: .appWhite,
-                                backgroundColor: .blue)
+                                titleColor: .appWhite)
         button.clipsToBounds = true
         return button
     }()
     
-    private let viewButton: BaseButton = {
+    private let signUpButton: BaseButton = {
         let button = BaseButton(title: "I want to view videos",
                                 image: UIImage.imgUser.resize(targetSize: CGSize(width: 18, height: 23)),
                                 titleFont: .font(.omnesRegular, size: .medium),
@@ -53,11 +52,14 @@ final class RegisterViewController: BaseViewController<RegisterViewModel> {
                                 backgroundColor: .clear,
                                 borderWidth: 1,
                                 borderColor: .appShaft)
+        button.addTarget(self,
+                         action: #selector(signUpAction),
+                         for: .touchUpInside)
         return button
     }()
     
     private lazy var stackView: UIStackView = {
-        return UIStackView(arrangedSubviews: [titleLabel, ownButton, viewButton],
+        return UIStackView(arrangedSubviews: [titleLabel, ownButton, signUpButton],
                            axis: .vertical,
                            spacing: 20,
                            alignment: .leading,
@@ -95,7 +97,7 @@ final class RegisterViewController: BaseViewController<RegisterViewModel> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .appWhite
+        view.backgroundColor = .appAlabaster
     }
     
     override func viewDidLayoutSubviews() {
@@ -131,8 +133,8 @@ final class RegisterViewController: BaseViewController<RegisterViewModel> {
         ownButton.leadingToSuperview()
         ownButton.trailingToSuperview()
         
-        viewButton.leadingToSuperview()
-        viewButton.trailingToSuperview()
+        signUpButton.leadingToSuperview()
+        signUpButton.trailingToSuperview()
         
         stackView.centerYToSuperview()
         stackView.leadingToSuperview(offset: 25)
@@ -157,5 +159,8 @@ final class RegisterViewController: BaseViewController<RegisterViewModel> {
 private extension RegisterViewController {
     func loginAction() {
         viewModel.loginButtonAction()
+    }
+    func signUpAction() {
+        viewModel.signUpButtonAction()
     }
 }

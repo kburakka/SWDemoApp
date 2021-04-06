@@ -1,11 +1,13 @@
 PODS:
   - Alamofire (5.4.1)
+  - IQKeyboardManagerSwift (6.3.0)
   - SwiftGen (6.4.0)
   - SwiftLint (0.43.1)
   - TinyConstraints (4.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
+  - IQKeyboardManagerSwift (= 6.3)
   - SwiftGen (~> 6.0)
   - SwiftLint (~> 0.42)
   - TinyConstraints (~> 4.0)
@@ -13,16 +15,18 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - IQKeyboardManagerSwift
     - SwiftGen
     - SwiftLint
     - TinyConstraints
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
 
-PODFILE CHECKSUM: 66b10bafaf8bae0f3e1f08b90af882320380c310
+PODFILE CHECKSUM: 7a93908ee0385d8b021b3a5edd883753c4135e65
 
 COCOAPODS: 1.10.1

@@ -10,7 +10,8 @@ target 'SWDemoApp' do
   pod 'Alamofire', '~> 5.4'
   pod 'SwiftLint', '~> 0.42'
   pod 'SwiftGen', '~> 6.0'
-  
+  pod 'IQKeyboardManagerSwift', '6.3'
+
   target 'SWDemoAppTests' do
     inherit! :search_paths
     # Pods for testing

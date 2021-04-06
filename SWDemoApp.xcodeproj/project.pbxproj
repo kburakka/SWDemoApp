@@ -53,6 +53,12 @@
 		B308E86A261C4F3600E45656 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E869261C4F3500E45656 /* UIImage+Extension.swift */; };
 		B308E870261C513E00E45656 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E86F261C513E00E45656 /* Closures.swift */; };
 		B308E87F261C5ECD00E45656 /* RegisterTopCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E87E261C5ECD00E45656 /* RegisterTopCard.swift */; };
+		B308E88A261C7BCA00E45656 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E887261C7BCA00E45656 /* SignUpRouter.swift */; };
+		B308E88B261C7BCA00E45656 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E888261C7BCA00E45656 /* SignUpViewController.swift */; };
+		B308E88C261C7BCA00E45656 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E889261C7BCA00E45656 /* SignUpViewModel.swift */; };
+		B308E894261C7BE100E45656 /* SignUpRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E893261C7BE100E45656 /* SignUpRoute.swift */; };
+		B308E89A261C81B300E45656 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E899261C81B300E45656 /* AppTextField.swift */; };
+		B308E8DF261CB04800E45656 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E8DE261CB04700E45656 /* CheckBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +134,12 @@
 		B308E869261C4F3500E45656 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		B308E86F261C513E00E45656 /* Closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
 		B308E87E261C5ECD00E45656 /* RegisterTopCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTopCard.swift; sourceTree = "<group>"; };
+		B308E887261C7BCA00E45656 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
+		B308E888261C7BCA00E45656 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B308E889261C7BCA00E45656 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		B308E893261C7BE100E45656 /* SignUpRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRoute.swift; sourceTree = "<group>"; };
+		B308E899261C81B300E45656 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
+		B308E8DE261CB04700E45656 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		E294079B99E6FC024C8BA5E9 /* Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SWDemoApp-SWDemoAppUITests/Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7AE278F77EEBE64FAE1B4EE /* Pods_SWDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81DE28F58DD1078EE47A918 /* Pods_SWDemoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWDemoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -304,6 +316,7 @@
 		B308E77D261B29C200E45656 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				B308E886261C7BAD00E45656 /* SignUp */,
 				B308E857261BAE4A00E45656 /* Register */,
 				B308E77E261B29D000E45656 /* Login */,
 			);
@@ -372,6 +385,8 @@
 			children = (
 				B308E87D261C5E9B00E45656 /* Base */,
 				B308E87E261C5ECD00E45656 /* RegisterTopCard.swift */,
+				B308E899261C81B300E45656 /* AppTextField.swift */,
+				B308E8DE261CB04700E45656 /* CheckBox.swift */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -402,6 +417,17 @@
 				B308E843261B965300E45656 /* BaseButton.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		B308E886261C7BAD00E45656 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				B308E887261C7BCA00E45656 /* SignUpRouter.swift */,
+				B308E888261C7BCA00E45656 /* SignUpViewController.swift */,
+				B308E889261C7BCA00E45656 /* SignUpViewModel.swift */,
+				B308E893261C7BE100E45656 /* SignUpRoute.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		FED235B10BBC69F124A04BBF /* Pods */ = {
@@ -706,6 +732,7 @@
 				B308E777261B25EB00E45656 /* Animator.swift in Sources */,
 				B308E7E0261B315B00E45656 /* UIImage+Images.swift in Sources */,
 				B308E776261B25EB00E45656 /* PushTransition.swift in Sources */,
+				B308E89A261C81B300E45656 /* AppTextField.swift in Sources */,
 				B308E7A0261B2ADD00E45656 /* BaseViewModel.swift in Sources */,
 				B308E7F2261B35F400E45656 /* Gradient.swift in Sources */,
 				B308E7E6261B341300E45656 /* CALayer+Extension.swift in Sources */,
@@ -720,12 +747,17 @@
 				B308E80B261B60A200E45656 /* UIFont+Extensions.swift in Sources */,
 				B308E782261B29EC00E45656 /* LoginRouter.swift in Sources */,
 				B308E716261B231F00E45656 /* AppDelegate.swift in Sources */,
+				B308E894261C7BE100E45656 /* SignUpRoute.swift in Sources */,
 				B308E775261B25EB00E45656 /* Transition.swift in Sources */,
+				B308E88B261C7BCA00E45656 /* SignUpViewController.swift in Sources */,
 				B308E803261B608100E45656 /* Fonts.swift in Sources */,
+				B308E8DF261CB04800E45656 /* CheckBox.swift in Sources */,
 				B308E783261B29EC00E45656 /* LoginViewController.swift in Sources */,
 				B308E774261B25EB00E45656 /* PlaceOnWindowTransition.swift in Sources */,
 				B308E85D261BAE7800E45656 /* RegisterViewModel.swift in Sources */,
+				B308E88C261C7BCA00E45656 /* SignUpViewModel.swift in Sources */,
 				B308E870261C513E00E45656 /* Closures.swift in Sources */,
+				B308E88A261C7BCA00E45656 /* SignUpRouter.swift in Sources */,
 				B308E835261B7AC100E45656 /* UIStackView+Extension.swift in Sources */,
 				B308E78C261B2A0500E45656 /* LoginRoute.swift in Sources */,
 				B308E86A261C4F3600E45656 /* UIImage+Extension.swift in Sources */,

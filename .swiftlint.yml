@@ -3,6 +3,7 @@ included:
 excluded:
   - .git
   - Pods
+  - SWDemoApp/CustomComponents/CheckBox.swift
 analyzer_rules:
   - unused_declaration
   - unused_import

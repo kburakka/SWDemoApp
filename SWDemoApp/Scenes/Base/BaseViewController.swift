@@ -27,6 +27,7 @@ class BaseViewController<V: BaseViewModelProtocol>: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupLayouts()
+        hideKeyboardWhenTappedAround()
     }
     
     // MARK: - SetupViews
@@ -34,4 +35,15 @@ class BaseViewController<V: BaseViewModelProtocol>: UIViewController {
     
     // MARK: - SetupLayouts
     func setupLayouts() {}
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc 
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

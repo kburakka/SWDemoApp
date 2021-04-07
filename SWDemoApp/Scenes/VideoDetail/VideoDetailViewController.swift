@@ -1,20 +1,19 @@
 //
-//  CategoryDetailViewController.swift
+//  VideoDetailViewController.swift
 //  SWDemoApp
 //
-//  Created by Burak Kaya on 7.04.2021.
+//  Created by Burak Kaya on 8.04.2021.
 //
 
 import UIKit
 
-final class CategoryDetailViewController: BaseViewController<CategoryDetailViewModel> {
-    
+final class VideoDetailViewController: BaseViewController<VideoDetailViewModel> {
+   
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
-        tableView.allowsSelection = true
+        tableView.allowsSelection = false
         tableView.register(DetailHeaderCell.self)
-        tableView.register(CategoryVideoCell.self)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
@@ -24,18 +23,15 @@ final class CategoryDetailViewController: BaseViewController<CategoryDetailViewM
     enum Section: Int, CaseIterable {
         case header
         case video
+        case description
+        case features
+        case clickto
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .appWhite
-        navigationItem.title = viewModel.category?.title
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.title = viewModel.video?.brand
     }
     
     override func setupViews() {
@@ -43,14 +39,13 @@ final class CategoryDetailViewController: BaseViewController<CategoryDetailViewM
     }
     
     override func setupLayouts() {
-        tableView.edgesToSuperview(excluding: .bottom)
-        tableView.bottomToSuperview(offset: -30)
+        tableView.edgesToSuperview()
     }
 }
 
-extension CategoryDetailViewController: UITableViewDelegate, UITableViewDataSource {
+extension VideoDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,7 +53,13 @@ extension CategoryDetailViewController: UITableViewDelegate, UITableViewDataSour
         case .header:
             return 1
         case .video:
-            return viewModel.videos.count
+            return 0
+        case .clickto:
+            return 0
+        case .description:
+            return 0
+        case .features:
+            return 0
         case .none:
             return 0
         }
@@ -68,14 +69,17 @@ extension CategoryDetailViewController: UITableViewDelegate, UITableViewDataSour
         switch Section(rawValue: indexPath.section) {
         case .header:
             let cell: DetailHeaderCell = tableView.dequeueReusableCell(for: indexPath)
-            let viewModel = DetailHeaderCellModel(category: self.viewModel.category, detailType: .category)
+            let viewModel = DetailHeaderCellModel(video: self.viewModel.video, detailType: .video)
             cell.set(viewModel: viewModel)
             return cell
         case .video:
-            let cell: CategoryVideoCell = tableView.dequeueReusableCell(for: indexPath)
-            let viewModel = CategoryVideoCellModel(video: self.viewModel.videos[indexPath.row])
-            cell.set(viewModel: viewModel)
-            return cell
+            return UITableViewCell()
+        case .clickto:
+            return UITableViewCell()
+        case .description:
+            return UITableViewCell()
+        case .features:
+            return UITableViewCell()
         case .none:
             return UITableViewCell()
         }
@@ -86,20 +90,15 @@ extension CategoryDetailViewController: UITableViewDelegate, UITableViewDataSour
         case .header:
             return 130
         case .video:
-            return 185
+            return 130
+        case .clickto:
+            return 130
+        case .description:
+            return 130
+        case .features:
+            return 130
         case .none:
-            return 0
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch Section(rawValue: indexPath.section) {
-        case .header:
-            break
-        case .video:
-            viewModel.videoTapAction(video: viewModel.videos[indexPath.row])
-        case .none:
-            break
+            return 130
         }
     }
 }

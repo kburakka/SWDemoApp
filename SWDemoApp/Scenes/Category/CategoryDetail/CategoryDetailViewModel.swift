@@ -12,11 +12,14 @@ protocol CategoryDetailViewDataSource {
     var category: Category? { get }
 }
 
-protocol CategoryDetailViewEventSource {}
+protocol CategoryDetailViewEventSource {
+    func videoTapAction(video: Video?)
+}
 
 protocol CategoryDetailViewProtocol: CategoryDetailViewDataSource, CategoryDetailViewEventSource {}
 
 final class CategoryDetailViewModel: BaseViewModel<CategoryDetailRouter>, CategoryDetailViewProtocol {
+
     var category: Category?
     
     let videoUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
@@ -64,4 +67,8 @@ final class CategoryDetailViewModel: BaseViewModel<CategoryDetailRouter>, Catego
                              title: "iPhone 11 Plus new cpu",
                              thumb: thumbUrl,
                              url: videoUrl)]
+    
+    func videoTapAction(video: Video?) {
+        router.pushVideoDetail(category: category, video: video)
+    }
 }

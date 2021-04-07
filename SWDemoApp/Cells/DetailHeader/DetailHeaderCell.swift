@@ -1,5 +1,5 @@
 //
-//  CategoryDetailHeaderCell.swift
+//  DetailHeaderCell.swift
 //  SWDemoApp
 //
 //  Created by Burak Kaya on 7.04.2021.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class CategoryDetailHeaderCell: UITableViewCell, ReusableView {
+class DetailHeaderCell: UITableViewCell, ReusableView {
     
-    weak var viewModel: CategoryDetailHeaderCellProtocol?
+    weak var viewModel: DetailHeaderCellProtocol?
     
     private let containerView: UIView = {
         let view = UIView(backgroundColor: UIColor.appShaft.withAlphaComponent(0.05), cornerRadius: 10)
@@ -58,7 +58,7 @@ class CategoryDetailHeaderCell: UITableViewCell, ReusableView {
     
     override func layoutSubviews() {
          super.layoutSubviews()
-         self.contentView.frame = self.contentView.frame.inset(by: UIEdgeInsets(top: 30, left: 36, bottom: 0, right: 30))
+         self.contentView.frame = self.contentView.frame.inset(by: UIEdgeInsets(top: 36, left: 30, bottom: 0, right: 30))
     }
     
     private func configureContents() {
@@ -76,10 +76,18 @@ class CategoryDetailHeaderCell: UITableViewCell, ReusableView {
         infoStackView.centerYToSuperview()
     }
     
-    func set(viewModel: CategoryDetailHeaderCellProtocol) {
+    func set(viewModel: DetailHeaderCellProtocol) {
         self.viewModel = viewModel
-        categoryIcon.image = viewModel.category?.icon
-        titleLabel.text = viewModel.category?.title
-        videoCountLabel.text = "\(viewModel.category?.videoCount ?? 0) Videos"
+        switch viewModel.detailType {
+        case .video:
+            categoryIcon.image = nil
+            titleLabel.text = viewModel.video?.brand
+            videoCountLabel.text = "22 Videos"
+        case .category:
+            categoryIcon.image = viewModel.category?.icon
+            titleLabel.text = viewModel.category?.title
+            videoCountLabel.text = "\(viewModel.category?.videoCount ?? 0) Videos"
+        }
+        
     }
 }

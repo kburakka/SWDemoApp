@@ -88,6 +88,7 @@ class CategoryVideoCell: UITableViewCell, ReusableView {
     }
     
     private func configureContents() {
+        selectionStyle = .none
         buttomView.addSubviews([infoStackView, likeButton])
         topView.addSubviews([videoImage, playButton])
         contentView.addSubviews([topView, buttomView])

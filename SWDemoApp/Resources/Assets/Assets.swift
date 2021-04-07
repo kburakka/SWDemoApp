@@ -50,6 +50,7 @@ public enum Asset {
     public static let imgPlay = ImageAsset(name: "imgPlay")
     public static let imgShowPassword = ImageAsset(name: "imgShowPassword")
     public static let imgUser = ImageAsset(name: "imgUser")
+    public static let imgVideoImage = ImageAsset(name: "imgVideoImage")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

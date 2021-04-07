@@ -81,6 +81,9 @@
 		B308E971261D909400E45656 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E970261D909400E45656 /* UITableView+Extension.swift */; };
 		B308E978261D925C00E45656 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E976261D925C00E45656 /* MenuCell.swift */; };
 		B308E979261D925C00E45656 /* MenuCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E977261D925C00E45656 /* MenuCellModel.swift */; };
+		B308E983261DBEB900E45656 /* LatestUploadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E981261DBEB900E45656 /* LatestUploadCell.swift */; };
+		B308E984261DBEB900E45656 /* LatestUploadCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E982261DBEB900E45656 /* LatestUploadCellModel.swift */; };
+		B308E98C261DC22000E45656 /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E98B261DC22000E45656 /* UISearchBar+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,6 +187,9 @@
 		B308E970261D909400E45656 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		B308E976261D925C00E45656 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		B308E977261D925C00E45656 /* MenuCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellModel.swift; sourceTree = "<group>"; };
+		B308E981261DBEB900E45656 /* LatestUploadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestUploadCell.swift; sourceTree = "<group>"; };
+		B308E982261DBEB900E45656 /* LatestUploadCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestUploadCellModel.swift; sourceTree = "<group>"; };
+		B308E98B261DC22000E45656 /* UISearchBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extension.swift"; sourceTree = "<group>"; };
 		E294079B99E6FC024C8BA5E9 /* Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SWDemoApp-SWDemoAppUITests/Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7AE278F77EEBE64FAE1B4EE /* Pods_SWDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81DE28F58DD1078EE47A918 /* Pods_SWDemoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWDemoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -427,6 +433,7 @@
 				B308E869261C4F3500E45656 /* UIImage+Extension.swift */,
 				B308E918261CC97700E45656 /* UICollectionView+Extension.swift */,
 				B308E970261D909400E45656 /* UITableView+Extension.swift */,
+				B308E98B261DC22000E45656 /* UISearchBar+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -503,6 +510,7 @@
 		B308E904261CC47700E45656 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				B308E980261DBE9E00E45656 /* LatestUpload */,
 				B308E975261D924D00E45656 /* Menu */,
 				B308E920261CE51D00E45656 /* CategoryHeader */,
 				B308E90F261CC49600E45656 /* Category */,
@@ -558,6 +566,15 @@
 				B308E977261D925C00E45656 /* MenuCellModel.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		B308E980261DBE9E00E45656 /* LatestUpload */ = {
+			isa = PBXGroup;
+			children = (
+				B308E981261DBEB900E45656 /* LatestUploadCell.swift */,
+				B308E982261DBEB900E45656 /* LatestUploadCellModel.swift */,
+			);
+			path = LatestUpload;
 			sourceTree = "<group>";
 		};
 		FED235B10BBC69F124A04BBF /* Pods */ = {
@@ -882,6 +899,7 @@
 				B308E779261B25EB00E45656 /* AppRouter.swift in Sources */,
 				B308E7DE261B315B00E45656 /* Assets.swift in Sources */,
 				B308E865261BAE9000E45656 /* RegisterRoute.swift in Sources */,
+				B308E98C261DC22000E45656 /* UISearchBar+Extension.swift in Sources */,
 				B308E923261CE53100E45656 /* CategoryHeaderCell.swift in Sources */,
 				B308E7DF261B315B00E45656 /* UIColor+Colors.swift in Sources */,
 				B308E80B261B60A200E45656 /* UIFont+Extensions.swift in Sources */,
@@ -892,6 +910,7 @@
 				B308E716261B231F00E45656 /* AppDelegate.swift in Sources */,
 				B308E93E261CFB8500E45656 /* BaseNavigationController.swift in Sources */,
 				B308E894261C7BE100E45656 /* SignUpRoute.swift in Sources */,
+				B308E984261DBEB900E45656 /* LatestUploadCellModel.swift in Sources */,
 				B308E775261B25EB00E45656 /* Transition.swift in Sources */,
 				B308E908261CC49200E45656 /* CategoryCellModel.swift in Sources */,
 				B308E88B261C7BCA00E45656 /* SignUpViewController.swift in Sources */,
@@ -903,6 +922,7 @@
 				B308E774261B25EB00E45656 /* PlaceOnWindowTransition.swift in Sources */,
 				B308E8F7261CC34600E45656 /* CategoriesViewModel.swift in Sources */,
 				B308E8F5261CC34600E45656 /* CategoriesRouter.swift in Sources */,
+				B308E983261DBEB900E45656 /* LatestUploadCell.swift in Sources */,
 				B308E85D261BAE7800E45656 /* RegisterViewModel.swift in Sources */,
 				B308E88C261C7BCA00E45656 /* SignUpViewModel.swift in Sources */,
 				B308E914261CC5C000E45656 /* ReusableView.swift in Sources */,

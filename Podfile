@@ -11,6 +11,7 @@ target 'SWDemoApp' do
   pod 'SwiftLint', '~> 0.42'
   pod 'SwiftGen', '~> 6.0'
   pod 'SideMenu', '~> 6.0'
+  pod 'Kingfisher', '~> 6.0'
   
   target 'SWDemoAppTests' do
     inherit! :search_paths

@@ -77,6 +77,10 @@ public extension UIImage {
   static var imgUser: UIImage {
       return Asset.Images.imgUser.image
   }
+
+  static var imgVideoImage: UIImage {
+      return Asset.Images.imgVideoImage.image
+  }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

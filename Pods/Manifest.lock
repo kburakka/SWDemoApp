@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (5.4.1)
-  - IQKeyboardManagerSwift (6.3.0)
+  - Kingfisher (6.2.1)
   - SideMenu (6.5.0)
   - SwiftGen (6.4.0)
   - SwiftLint (0.43.1)
@@ -8,7 +8,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
-  - IQKeyboardManagerSwift (= 6.3)
+  - Kingfisher (~> 6.0)
   - SideMenu (~> 6.0)
   - SwiftGen (~> 6.0)
   - SwiftLint (~> 0.42)
@@ -17,7 +17,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - IQKeyboardManagerSwift
+    - Kingfisher
     - SideMenu
     - SwiftGen
     - SwiftLint
@@ -25,12 +25,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
-  IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
+  Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
 
-PODFILE CHECKSUM: 1b98f635bc2cf793a812c540e3313e8b95e98a87
+PODFILE CHECKSUM: 94b4309c0d26aba9497ce274a4e9c06a0a97a4f8
 
 COCOAPODS: 1.10.1

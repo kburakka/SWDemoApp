@@ -7,7 +7,9 @@
 
 import UIKit
 
-protocol HomeViewDataSource {}
+protocol HomeViewDataSource {
+    var latestUploadModels: [LatestUploadCellModel] { get }
+}
 
 protocol HomeViewEventSource {
     func leftItemAction(from: UIViewController)
@@ -16,6 +18,38 @@ protocol HomeViewEventSource {
 protocol HomeViewProtocol: HomeViewDataSource, HomeViewEventSource {}
 
 final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewProtocol {
+    let videoUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+    let thumbUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
+    
+    lazy var latestUploadModels: [LatestUploadCellModel] = [LatestUploadCellModel(brand: "Apple",
+                                                                                  title: "iPhone 11 Plus new cpu",
+                                                                                  url: videoUrl,
+                                                                                  thumb: thumbUrl),
+                                                            LatestUploadCellModel(brand: "Apple",
+                                                                                                                                          title: "iPhone 11 Plus new cpu",
+                                                                                                                                          url: videoUrl,
+                                                                                                                                          thumb: thumbUrl),
+                                                            LatestUploadCellModel(brand: "Apple",
+                                                                                                                                          title: "iPhone 11 Plus new cpu",
+                                                                                                                                          url: videoUrl,
+                                                                                                                                          thumb: thumbUrl),
+                                                            LatestUploadCellModel(brand: "Apple",
+                                                                                                                                          title: "iPhone 11 Plus new cpu",
+                                                                                                                                          url: videoUrl,
+                                                                                                                                          thumb: thumbUrl),
+                                                            LatestUploadCellModel(brand: "Apple",
+                                                                                                                                          title: "iPhone 11 Plus new cpu",
+                                                                                                                                          url: videoUrl,
+                                                                                                                                          thumb: thumbUrl),
+                                                            LatestUploadCellModel(brand: "Apple",
+                                                                                                                                          title: "iPhone 11 Plus new cpu",
+                                                                                                                                          url: videoUrl,
+                                                                                                                                          thumb: thumbUrl),
+                                                            LatestUploadCellModel(brand: "Apple",
+                                                                                                                                          title: "iPhone 11 Plus new cpu",
+                                                                                                                                          url: videoUrl,
+                                                                                                                                          thumb: thumbUrl)]
+    
     func leftItemAction(from: UIViewController) {
         router.presentMenu(from: from)
     }

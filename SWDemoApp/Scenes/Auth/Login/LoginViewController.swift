@@ -109,6 +109,7 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
         super.viewDidLayoutSubviews()
         view.layer.insertSublayer(CALayer().appVericalGradient(frame: view.bounds), at: 0)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)

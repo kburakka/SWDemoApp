@@ -48,6 +48,6 @@ final class CategoriesViewModel: BaseViewModel<CategoriesRouter>, CategoriesView
     }
     
     func comfirmButtonAction() {
-        print("comfirm")
+        router.pushHome()
     }
 }

@@ -10,6 +10,10 @@ public extension UIImage {
       return Asset.Images.appIcon.image
   }
 
+  static var appIconNav: UIImage {
+      return Asset.Images.appIconNav.image
+  }
+
   static var imgBedroom: UIImage {
       return Asset.Images.imgBedroom.image
   }
@@ -36,6 +40,10 @@ public extension UIImage {
 
   static var imgGadget: UIImage {
       return Asset.Images.imgGadget.image
+  }
+
+  static var imgHamburger: UIImage {
+      return Asset.Images.imgHamburger.image
   }
 
   static var imgHidePassword: UIImage {

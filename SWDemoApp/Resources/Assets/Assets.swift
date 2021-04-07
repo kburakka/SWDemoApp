@@ -32,6 +32,7 @@ public enum Asset {
   }
   public enum Images {
     public static let appIcon = ImageAsset(name: "appIcon")
+    public static let appIconNav = ImageAsset(name: "appIconNav")
     public static let imgBedroom = ImageAsset(name: "imgBedroom")
     public static let imgBuilding = ImageAsset(name: "imgBuilding")
     public static let imgClothes = ImageAsset(name: "imgClothes")
@@ -39,6 +40,7 @@ public enum Asset {
     public static let imgElectrical = ImageAsset(name: "imgElectrical")
     public static let imgFirstaid = ImageAsset(name: "imgFirstaid")
     public static let imgGadget = ImageAsset(name: "imgGadget")
+    public static let imgHamburger = ImageAsset(name: "imgHamburger")
     public static let imgHidePassword = ImageAsset(name: "imgHidePassword")
     public static let imgShowPassword = ImageAsset(name: "imgShowPassword")
     public static let imgUser = ImageAsset(name: "imgUser")

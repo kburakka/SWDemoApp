@@ -8,15 +8,9 @@
 import UIKit
 
 final class SignUpViewController: BaseViewController<SignUpViewModel> {
-    private let scrollView: UIScrollView = {
-        let view = UIScrollView()
-        return view
-    }()
-    
-    private let containerView: UIView = {
-        let view = UIView()
-        return view
-    }()
+    private let scrollView = UIScrollView()
+   
+    private let containerView = UIView()
     
     private let titleLabel: UILabel = {
         let label = UILabel()

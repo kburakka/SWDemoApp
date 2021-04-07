@@ -17,7 +17,7 @@ protocol BaseViewModelProtocol: BaseViewModelDataSource, BaseViewModelEventSourc
 }
 
 class BaseViewModel<R: Router>: BaseViewModelProtocol {
-    let router: R
+    var router: R
     
     init(router: R) {
         self.router = router

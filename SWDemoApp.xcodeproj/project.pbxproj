@@ -84,6 +84,7 @@
 		B308E983261DBEB900E45656 /* LatestUploadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E981261DBEB900E45656 /* LatestUploadCell.swift */; };
 		B308E984261DBEB900E45656 /* LatestUploadCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E982261DBEB900E45656 /* LatestUploadCellModel.swift */; };
 		B308E98C261DC22000E45656 /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E98B261DC22000E45656 /* UISearchBar+Extension.swift */; };
+		B308E9A9261DE32C00E45656 /* HomeCategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B308E9A8261DE32C00E45656 /* HomeCategoryCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +191,7 @@
 		B308E981261DBEB900E45656 /* LatestUploadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestUploadCell.swift; sourceTree = "<group>"; };
 		B308E982261DBEB900E45656 /* LatestUploadCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestUploadCellModel.swift; sourceTree = "<group>"; };
 		B308E98B261DC22000E45656 /* UISearchBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extension.swift"; sourceTree = "<group>"; };
+		B308E9A8261DE32C00E45656 /* HomeCategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryCard.swift; sourceTree = "<group>"; };
 		E294079B99E6FC024C8BA5E9 /* Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SWDemoApp-SWDemoAppUITests/Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7AE278F77EEBE64FAE1B4EE /* Pods_SWDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81DE28F58DD1078EE47A918 /* Pods_SWDemoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWDemoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -444,6 +446,7 @@
 				B308E87D261C5E9B00E45656 /* Base */,
 				B308E87E261C5ECD00E45656 /* RegisterTopCard.swift */,
 				B308E8DE261CB04700E45656 /* CheckBox.swift */,
+				B308E9A8261DE32C00E45656 /* HomeCategoryCard.swift */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -924,6 +927,7 @@
 				B308E8F5261CC34600E45656 /* CategoriesRouter.swift in Sources */,
 				B308E983261DBEB900E45656 /* LatestUploadCell.swift in Sources */,
 				B308E85D261BAE7800E45656 /* RegisterViewModel.swift in Sources */,
+				B308E9A9261DE32C00E45656 /* HomeCategoryCard.swift in Sources */,
 				B308E88C261C7BCA00E45656 /* SignUpViewModel.swift in Sources */,
 				B308E914261CC5C000E45656 /* ReusableView.swift in Sources */,
 				B308E870261C513E00E45656 /* Closures.swift in Sources */,

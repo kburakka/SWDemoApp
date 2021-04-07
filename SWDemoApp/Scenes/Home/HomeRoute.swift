@@ -8,14 +8,15 @@
 import UIKit
 
 protocol HomeRoute {
-    func pushHome()
+    func pushHome(categoryModels: [CategoryCellModel])
 }
 
 extension HomeRoute where Self: RouterProtocol {
     
-    func pushHome() {
+    func pushHome(categoryModels: [CategoryCellModel]) {
         let router = HomeRouter()
         let viewModel = HomeViewModel(router: router)
+        viewModel.categoryModels = categoryModels
         let viewController = HomeViewController(viewModel: viewModel)
         let navigationController = BaseNavigationController(rootViewController: viewController)
 

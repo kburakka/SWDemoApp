@@ -11,7 +11,14 @@ import AVFoundation
 import AVKit
 
 final class HomeViewController: BaseViewController<HomeViewModel> {
+    private let scrollView = UIScrollView()
     
+    private let containerView = UIView()
+    
+    private let latestUploadView = UIView()
+    
+    private let fountCategoriesView = UIView()
+
     private let transparentView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.appShaft.withAlphaComponent(0.5)
@@ -38,6 +45,14 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         return button
     }()
     
+    private let latestUploadLabel: UILabel = {
+        let label = UILabel()
+        label.font = .font(.omnesSemiBold, size: .large)
+        label.textColor = .appShaft
+        label.text = "Latest uploads"
+        return label
+    }()
+    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -51,22 +66,63 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         return collectionView
     }()
     
+    private let fountCategoriesLabel: UILabel = {
+        let label = UILabel()
+        label.font = .font(.omnesSemiBold, size: .large)
+        label.textColor = .appShaft
+        label.text = "My Fount Categories"
+        return label
+    }()
+    
+    private lazy var categoriesStackView: UIStackView = {
+        return UIStackView(arrangedSubviews: [],
+                           axis: .vertical,
+                           spacing: 15,
+                           alignment: .fill,
+                           distribution: .fillEqually)
+    }()
+    
+    private let showMoreButton: BaseButton = {
+        let button = BaseButton(title: "Show more",
+                                titleFont: .font(.omnesRegular, size: .medium),
+                                titleColor: .appWhite)
+        button.addTarget(self,
+                         action: #selector(showMoreAction),
+                         for: .touchUpInside)
+        button.clipsToBounds = true
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavItems()
+        setCategories()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         searchBar.setRightImage(image: UIImage.imgSearch.resize(targetSize: CGSize(width: 12, height: 12)))
-
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        showMoreButton.layer.insertSublayer(CALayer().appHorizontalGradient(frame: showMoreButton.bounds), at: 0)
+    }
+    
     override func setupViews() {
         view.backgroundColor = .appWhite
-        view.addSubviews([searchBar, notificationButton, collectionView])
+        view.addSubview(scrollView)
+        scrollView.addSubview(containerView)
+        latestUploadView.addSubviews([latestUploadLabel, collectionView])
+        fountCategoriesView.addSubviews([fountCategoriesLabel, categoriesStackView, showMoreButton])
+        containerView.addSubviews([searchBar, notificationButton, latestUploadView, fountCategoriesView])
     }
     
     override func setupLayouts() {
+        scrollView.edgesToSuperview(usingSafeArea: true)
+        containerView.edgesToSuperview()
+        containerView.widthToSuperview()
+        
         searchBar.leadingToSuperview(offset: 5)
         searchBar.topToSuperview(offset: 22, usingSafeArea: true)
         searchBar.height(50)
@@ -77,10 +133,42 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         notificationButton.height(46)
         notificationButton.width(46)
         
-        collectionView.topToBottom(of: searchBar, offset: 30)
+        latestUploadView.topToBottom(of: searchBar, offset: 30)
+        latestUploadView.leadingToSuperview()
+        latestUploadView.trailingToSuperview()
+        latestUploadView.height(310)
+        
+        latestUploadLabel.topToSuperview()
+        latestUploadLabel.leadingToSuperview(offset: 20)
+        latestUploadLabel.trailingToSuperview(offset: -20)
+        latestUploadLabel.height(20)
+        
+        collectionView.topToBottom(of: latestUploadLabel, offset: 30)
         collectionView.leadingToSuperview()
         collectionView.trailingToSuperview()
         collectionView.height(260)
+        collectionView.bottomToSuperview()
+        
+        fountCategoriesView.topToBottom(of: latestUploadView, offset: 40)
+        fountCategoriesView.leadingToSuperview()
+        fountCategoriesView.trailingToSuperview()
+        fountCategoriesView.bottomToSuperview(offset: -20, usingSafeArea: true)
+        
+        fountCategoriesLabel.topToSuperview()
+        fountCategoriesLabel.leadingToSuperview(offset: 20)
+        fountCategoriesLabel.trailingToSuperview(offset: -20)
+        fountCategoriesLabel.height(20)
+        
+        categoriesStackView.topToBottom(of: fountCategoriesLabel, offset: 30)
+        categoriesStackView.leadingToSuperview(offset: 20)
+        categoriesStackView.trailingToSuperview(offset: 20)
+        
+        showMoreButton.centerXToSuperview()
+        showMoreButton.height(46)
+        showMoreButton.width(127)
+        showMoreButton.bottomToSuperview(offset: -30)
+        showMoreButton.topToBottom(of: categoriesStackView, offset: 30)
+
     }
     
     func setupNavItems() {
@@ -161,6 +249,16 @@ private extension HomeViewController {
             playVideo(url: url)
         }
     }
+    
+    func showMoreAction() {
+        print("show more")
+    }
+    
+    func handleCategoryTap(_ sender: UITapGestureRecognizer? = nil) {
+        if let tag = sender?.view?.tag {
+            print(tag)
+        }
+    }
 }
 
 // MARK: - Helper
@@ -174,5 +272,25 @@ private extension HomeViewController {
         self.present(avpController, animated: true) {
             avpController.player?.play()
         }
+    }
+    
+    func setCategories() {
+        var categoryCards: [HomeCategoryCard] = []
+        for index in 0..<viewModel.categoryModels.count {
+            let categoryModel = viewModel.categoryModels[index]
+ 
+            if categoryModel.isSelected {
+                let categoryCard = HomeCategoryCard(viewModel: categoryModel)
+                categoryCard.height(52)
+                categoryCard.tag = index
+                let tap = UITapGestureRecognizer(target: self, action: #selector(handleCategoryTap(_:)))
+                categoryCard.addGestureRecognizer(tap)
+                categoryCards.append(categoryCard)
+            }
+        }
+
+        let height = (categoryCards.count * 52) + ((categoryCards.count - 1) * 15)
+        categoriesStackView.height(CGFloat(height))
+        categoriesStackView.addArrangedSubviews(categoryCards)
     }
 }

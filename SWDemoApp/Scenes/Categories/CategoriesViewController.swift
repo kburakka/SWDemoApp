@@ -68,7 +68,7 @@ extension CategoriesViewController: UICollectionViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return viewModel.categoryModels.count
+            return viewModel.categoryCellModels.count
         }
     }
     
@@ -79,7 +79,7 @@ extension CategoriesViewController: UICollectionViewDataSource {
             return cell
         } else {
             let cell: CategoryCell = collectionView.dequeueReusableCell(for: indexPath)
-            cell.set(viewModel: viewModel.categoryModels[indexPath.row])
+            cell.set(viewModel: viewModel.categoryCellModels[indexPath.row])
             return cell
         }
     }
@@ -103,7 +103,7 @@ extension CategoriesViewController: UICollectionViewDelegateFlowLayout {
         if section == 0 {
             return UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         } else {
-            let cellCount = CGFloat(viewModel.categoryModels.count)
+            let cellCount = CGFloat(viewModel.categoryCellModels.count)
 
             if cellCount > 0 {
                 if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {

@@ -8,9 +8,7 @@
 import UIKit
 
 protocol CategoryCellDataSource: AnyObject {
-    var title: String { get }
-    var icon: UIImage { get }
-    var isSelected: Bool { get }
+    var category: Category { get }
     var tapClosure: VoidClosure? { get set }
 }
 
@@ -21,22 +19,16 @@ protocol CategoryCellEventSource: AnyObject {
 protocol CategoryCellProtocol: CategoryCellDataSource, CategoryCellEventSource {}
 
 final class CategoryCellModel: CategoryCellProtocol {
-    var isSelected: Bool
+    var category: Category
     
     var tapClosure: VoidClosure?
     
-    var title: String
-    
-    var icon: UIImage
-    
-    init(title: String, icon: UIImage, isSelected: Bool) {
-        self.icon = icon
-        self.title = title
-        self.isSelected = isSelected
+    init(category: Category) {
+        self.category = category
     }
     
     func tapButtonAction() {
-        isSelected.toggle()
+        category.isSelected.toggle()
         tapClosure?()
     }
 }

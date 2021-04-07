@@ -160,6 +160,7 @@ private extension RegisterViewController {
     func loginAction() {
         viewModel.loginButtonAction()
     }
+    
     func signUpAction() {
         viewModel.signUpButtonAction()
     }

@@ -1,5 +1,5 @@
 //
-//  HomeCategoryCard.swift
+//  CategoriesBrandCard.swift
 //  SWDemoApp
 //
 //  Created by Burak Kaya on 7.04.2021.
@@ -7,14 +7,12 @@
 
 import UIKit
 
-class HomeCategoryCard: UIView {
+class CategoriesBrandCard: UIView {
 
     private let containerView: UIView = {
-        let view = UIView(backgroundColor: .clear,
+        let view = UIView(backgroundColor: UIColor.appWhite.withAlphaComponent(0.2),
                           cornerRadius: 10)
-        view.layer.borderWidth = 2
-        view.layer.borderColor = UIColor.appShaft.cgColor
-        view.addShadow(ofColor: .appAlto, radius: 3, offset: CGSize(width: 3, height: 3), opacity: 0.3)
+        view.addShadow(ofColor: .appWhite, radius: 3, offset: CGSize(width: 3, height: 3), opacity: 0.3)
         return view
     }()
     
@@ -27,14 +25,14 @@ class HomeCategoryCard: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .font(.omnesSemiBold, size: .medium)
-        label.textColor = .appShaft
+        label.textColor = .appWhite
         return label
     }()
     
     // MARK: - Init
     convenience init(viewModel: Category) {
         defer {
-            categoryIconImageView.image = viewModel.icon
+            categoryIconImageView.image = viewModel.iconWhite
             titleLabel.text = viewModel.title
             commonInit()
         }
@@ -68,8 +66,8 @@ class HomeCategoryCard: UIView {
         
         categoryIconImageView.leadingToSuperview(offset: 20)
         categoryIconImageView.centerYToSuperview()
-        categoryIconImageView.height(30)
-        categoryIconImageView.width(30)
+        categoryIconImageView.height(25)
+        categoryIconImageView.width(25)
         
         titleLabel.leadingToTrailing(of: categoryIconImageView, offset: 20)
         titleLabel.edgesToSuperview(excluding: .leading)

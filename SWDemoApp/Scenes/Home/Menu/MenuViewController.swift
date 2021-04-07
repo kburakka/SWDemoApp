@@ -73,10 +73,10 @@ final class MenuViewController: BaseViewController<MenuViewModel> {
     }
     
     override func setupLayouts() {
-        closeButton.height(36)
-        closeButton.width(36)
-        closeButton.topToSuperview()
-        closeButton.trailingToSuperview()
+        closeButton.height(18)
+        closeButton.width(18)
+        closeButton.topToSuperview(offset: 15, usingSafeArea: true)
+        closeButton.trailingToSuperview(offset: 15)
         
         appIconImageView.height(120)
         appIconImageView.width(120)

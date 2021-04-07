@@ -98,6 +98,11 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         setupNavItems()
         setCategories()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -251,7 +256,7 @@ private extension HomeViewController {
     }
     
     func showMoreAction() {
-        print("show more")
+        viewModel.showMoreAction()
     }
     
     func handleCategoryTap(_ sender: UITapGestureRecognizer? = nil) {
@@ -276,8 +281,8 @@ private extension HomeViewController {
     
     func setCategories() {
         var categoryCards: [HomeCategoryCard] = []
-        for index in 0..<viewModel.categoryModels.count {
-            let categoryModel = viewModel.categoryModels[index]
+        for index in 0..<viewModel.categories.count {
+            let categoryModel = viewModel.categories[index]
  
             if categoryModel.isSelected {
                 let categoryCard = HomeCategoryCard(viewModel: categoryModel)

@@ -9,18 +9,19 @@ import UIKit
 
 protocol HomeViewDataSource {
     var latestUploadModels: [LatestUploadCellModel] { get }
-    var categoryModels: [CategoryCellModel] { get }
+    var categories: [Category] { get }
 }
 
 protocol HomeViewEventSource {
     func leftItemAction(from: UIViewController)
+    func showMoreAction()
 }
 
 protocol HomeViewProtocol: HomeViewDataSource, HomeViewEventSource {}
 
 final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewProtocol {
     
-    var categoryModels: [CategoryCellModel] = []
+    var categories: [Category] = []
     
     let videoUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
     let thumbUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
@@ -57,4 +58,9 @@ final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewProtocol {
     func leftItemAction(from: UIViewController) {
         router.presentMenu(from: from)
     }
+    
+    func showMoreAction() {
+        router.pushCategoriesBrand(categories: categories)
+    }
+    
 }

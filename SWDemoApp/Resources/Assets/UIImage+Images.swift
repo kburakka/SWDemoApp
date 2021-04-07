@@ -10,28 +10,56 @@ public extension UIImage {
       return Asset.Images.imgBedroom.image
   }
 
+  static var imgBedroomWhite: UIImage {
+      return Asset.Images.imgBedroomWhite.image
+  }
+
   static var imgClothes: UIImage {
       return Asset.Images.imgClothes.image
+  }
+
+  static var imgClothesWhite: UIImage {
+      return Asset.Images.imgClothesWhite.image
   }
 
   static var imgDevices: UIImage {
       return Asset.Images.imgDevices.image
   }
 
+  static var imgDevicesWhite: UIImage {
+      return Asset.Images.imgDevicesWhite.image
+  }
+
   static var imgElectrical: UIImage {
       return Asset.Images.imgElectrical.image
+  }
+
+  static var imgElectricalWhite: UIImage {
+      return Asset.Images.imgElectricalWhite.image
   }
 
   static var imgFirstaid: UIImage {
       return Asset.Images.imgFirstaid.image
   }
 
+  static var imgFirstaidWhite: UIImage {
+      return Asset.Images.imgFirstaidWhite.image
+  }
+
   static var imgGadget: UIImage {
       return Asset.Images.imgGadget.image
   }
 
+  static var imgGadgetWhite: UIImage {
+      return Asset.Images.imgGadgetWhite.image
+  }
+
   static var imgXmlid: UIImage {
       return Asset.Images.imgXmlid.image
+  }
+
+  static var imgXmlidWhite: UIImage {
+      return Asset.Images.imgXmlidWhite.image
   }
 
   static var imgBell: UIImage {
@@ -52,6 +80,10 @@ public extension UIImage {
 
   static var appIconNav: UIImage {
       return Asset.Images.appIconNav.image
+  }
+
+  static var imgBack: UIImage {
+      return Asset.Images.imgBack.image
   }
 
   static var imgBuilding: UIImage {

@@ -8,8 +8,9 @@
 import Foundation
 
 protocol CategoriesViewDataSource {
-    var categoryModels: [CategoryCellModel] { get }
+    var categories: [Category] { get }
     var categoryHeaderModel: CategoryHeaderCellModel { get }
+    var categoryCellModels: [CategoryCellModel] { get }
 }
 
 protocol CategoriesViewEventSource {
@@ -20,34 +21,60 @@ protocol CategoriesViewEventSource {
 protocol CategoriesViewProtocol: CategoriesViewDataSource, CategoriesViewEventSource {}
 
 final class CategoriesViewModel: BaseViewModel<CategoriesRouter>, CategoriesViewProtocol {
-    var categoryModels: [CategoryCellModel] = [CategoryCellModel(title: "Home furnishing",
-                                                                 icon: .imgBedroom,
-                                                                 isSelected: false),
-                                               CategoryCellModel(title: "Smart home",
-                                                                 icon: .imgXmlid,
-                                                                 isSelected: false),
-                                               CategoryCellModel(title: "Fashion",
-                                                                 icon: .imgClothes,
-                                                                 isSelected: false),
-                                               CategoryCellModel(title: "Electric appliances",
-                                                                 icon: .imgElectrical,
-                                                                 isSelected: false),
-                                               CategoryCellModel(title: "Electronics",
-                                                                 icon: .imgDevices,
-                                                                 isSelected: false),
-                                               CategoryCellModel(title: "Gadgets",
-                                                                 icon: .imgGadget,
-                                                                 isSelected: false),
-                                               CategoryCellModel(title: "Medical equipment",
-                                                                 icon: .imgFirstaid,
-                                                                 isSelected: false)]
+    
+    lazy var categoryCellModels: [CategoryCellModel] = {
+        var categoryCellModels: [CategoryCellModel] = []
+        for category in categories {
+            categoryCellModels.append(CategoryCellModel(category: category))
+        }
+        return categoryCellModels
+    }()
+
+    var categories: [Category] = [Category(id: 1,
+                                           title: "Home furnishing",
+                                           icon: .imgBedroom,
+                                           iconWhite: .imgBedroomWhite,
+                                           isSelected: false),
+                                  Category(id: 2,
+                                           title: "Smart home",
+                                           icon: .imgXmlid,
+                                           iconWhite: .imgBedroomWhite,
+                                           isSelected: false),
+                                  Category(id: 3,
+                                           title: "Fashion",
+                                           icon: .imgClothes,
+                                           iconWhite: .imgClothesWhite,
+                                           isSelected: false),
+                                  Category(id: 4,
+                                           title: "Electric appliances",
+                                           icon: .imgElectrical,
+                                           iconWhite: .imgElectricalWhite,
+                                           isSelected: false),
+                                  Category(id: 5,
+                                           title: "Electronics",
+                                           icon: .imgDevices,
+                                           iconWhite: .imgDevicesWhite,
+                                           isSelected: false),
+                                  Category(id: 6,
+                                           title: "Gadgets",
+                                           icon: .imgGadget,
+                                           iconWhite: .imgGadgetWhite,
+                                           isSelected: false),
+                                  Category(id: 7,
+                                           title: "Medical equipment",
+                                           icon: .imgFirstaid,
+                                           iconWhite: .imgFirstaidWhite,
+                                           isSelected: false)]
+    
     var categoryHeaderModel = CategoryHeaderCellModel(title: "Hello, Alex!\nWhich are your favorite categories?")
     
     func didSelectItemAt(index: Int) {
-        categoryModels[index].tapButtonAction()
+        categoryCellModels[index].category.isSelected.toggle()
+        categories.first(where: { $0.id == categoryCellModels[index].category.id })?.isSelected.toggle()
+        categoryCellModels[index].tapButtonAction()
     }
     
     func comfirmButtonAction() {
-        router.pushHome(categoryModels: categoryModels)
+        router.pushHome(categories: categories)
     }
 }

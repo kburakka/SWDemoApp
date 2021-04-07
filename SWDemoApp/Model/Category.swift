@@ -14,12 +14,14 @@ class Category {
     let icon: UIImage
     let iconWhite: UIImage
     var isSelected: Bool
-    
-    init(id: Int, title: String, icon: UIImage, iconWhite: UIImage, isSelected: Bool) {
+    var videoCount: Int
+
+    init(id: Int, title: String, icon: UIImage, iconWhite: UIImage, isSelected: Bool, videoCount: Int) {
         self.id = id
         self.title = title
         self.icon = icon
         self.iconWhite = iconWhite
         self.isSelected = isSelected
+        self.videoCount = videoCount
     }
 }

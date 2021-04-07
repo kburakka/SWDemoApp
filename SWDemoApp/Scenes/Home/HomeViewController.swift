@@ -102,6 +102,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -250,7 +251,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 @objc
 private extension HomeViewController {
     func playButtonAction(sender: UIButton) {
-        if let url = URL(string: viewModel.latestUploadModels[sender.tag].url) {
+        if let url = URL(string: viewModel.latestUploadModels[sender.tag].video.url) {
             playVideo(url: url)
         }
     }
@@ -261,7 +262,7 @@ private extension HomeViewController {
     
     func handleCategoryTap(_ sender: UITapGestureRecognizer? = nil) {
         if let tag = sender?.view?.tag {
-            print(tag)
+            viewModel.categoryDetailAction(id: tag)
         }
     }
 }
@@ -281,17 +282,14 @@ private extension HomeViewController {
     
     func setCategories() {
         var categoryCards: [HomeCategoryCard] = []
-        for index in 0..<viewModel.categories.count {
-            let categoryModel = viewModel.categories[index]
- 
-            if categoryModel.isSelected {
-                let categoryCard = HomeCategoryCard(viewModel: categoryModel)
-                categoryCard.height(52)
-                categoryCard.tag = index
-                let tap = UITapGestureRecognizer(target: self, action: #selector(handleCategoryTap(_:)))
-                categoryCard.addGestureRecognizer(tap)
-                categoryCards.append(categoryCard)
-            }
+        
+        for category in viewModel.categories.filter({ $0.isSelected == true }) {
+            let categoryCard = HomeCategoryCard(viewModel: category)
+            categoryCard.height(52)
+            categoryCard.tag = category.id
+            let tap = UITapGestureRecognizer(target: self, action: #selector(handleCategoryTap(_:)))
+            categoryCard.addGestureRecognizer(tap)
+            categoryCards.append(categoryCard)
         }
 
         let height = (categoryCards.count * 52) + ((categoryCards.count - 1) * 15)

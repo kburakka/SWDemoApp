@@ -64,6 +64,7 @@ final class CategoriesBrandViewController: BaseViewController<CategoriesBrandVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -108,7 +109,7 @@ private extension CategoriesBrandViewController {
     
     func handleCategoryTap(_ sender: UITapGestureRecognizer? = nil) {
         if let tag = sender?.view?.tag {
-            print(tag)
+            viewModel.categoryDetailAction(id: tag)
         }
     }
     
@@ -125,7 +126,7 @@ private extension CategoriesBrandViewController {
             let categoryModel = viewModel.categories[index]
                  let categoryCard = CategoriesBrandCard(viewModel: categoryModel)
                 categoryCard.height(52)
-                categoryCard.tag = index
+                categoryCard.tag = categoryModel.id
                 let tap = UITapGestureRecognizer(target: self, action: #selector(handleCategoryTap(_:)))
                 categoryCard.addGestureRecognizer(tap)
                 categoryCards.append(categoryCard)

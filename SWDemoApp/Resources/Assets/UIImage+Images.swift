@@ -98,6 +98,10 @@ public extension UIImage {
       return Asset.Images.imgHidePassword.image
   }
 
+  static var imgLike: UIImage {
+      return Asset.Images.imgLike.image
+  }
+
   static var imgPlay: UIImage {
       return Asset.Images.imgPlay.image
   }

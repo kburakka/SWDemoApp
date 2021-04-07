@@ -88,8 +88,8 @@ class LatestUploadCell: UICollectionViewCell, ReusableView {
     
     func set(viewModel: LatestUploadCellProtocol) {
         self.viewModel = viewModel
-        videoImage.kf.setImage(with: URL(string: viewModel.thumb))
-        brandLabel.text = viewModel.brand
-        titleLabel.text = viewModel.title
+        videoImage.kf.setImage(with: URL(string: viewModel.video.thumb))
+        brandLabel.text = viewModel.video.brand
+        titleLabel.text = viewModel.video.title
     }
 }

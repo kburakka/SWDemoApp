@@ -55,6 +55,7 @@ public enum Asset {
     public static let imgBuilding = ImageAsset(name: "imgBuilding")
     public static let imgClose = ImageAsset(name: "imgClose")
     public static let imgHidePassword = ImageAsset(name: "imgHidePassword")
+    public static let imgLike = ImageAsset(name: "imgLike")
     public static let imgPlay = ImageAsset(name: "imgPlay")
     public static let imgShowPassword = ImageAsset(name: "imgShowPassword")
     public static let imgUser = ImageAsset(name: "imgUser")

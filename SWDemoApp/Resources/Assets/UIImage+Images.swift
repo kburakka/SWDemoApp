@@ -6,20 +6,8 @@ import UIKit
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 public extension UIImage {
 
-  static var appIcon: UIImage {
-      return Asset.Images.appIcon.image
-  }
-
-  static var appIconNav: UIImage {
-      return Asset.Images.appIconNav.image
-  }
-
   static var imgBedroom: UIImage {
       return Asset.Images.imgBedroom.image
-  }
-
-  static var imgBuilding: UIImage {
-      return Asset.Images.imgBuilding.image
   }
 
   static var imgClothes: UIImage {
@@ -42,12 +30,44 @@ public extension UIImage {
       return Asset.Images.imgGadget.image
   }
 
+  static var imgXmlid: UIImage {
+      return Asset.Images.imgXmlid.image
+  }
+
+  static var imgBell: UIImage {
+      return Asset.Images.imgBell.image
+  }
+
   static var imgHamburger: UIImage {
       return Asset.Images.imgHamburger.image
   }
 
+  static var imgSearch: UIImage {
+      return Asset.Images.imgSearch.image
+  }
+
+  static var appIcon: UIImage {
+      return Asset.Images.appIcon.image
+  }
+
+  static var appIconNav: UIImage {
+      return Asset.Images.appIconNav.image
+  }
+
+  static var imgBuilding: UIImage {
+      return Asset.Images.imgBuilding.image
+  }
+
+  static var imgClose: UIImage {
+      return Asset.Images.imgClose.image
+  }
+
   static var imgHidePassword: UIImage {
       return Asset.Images.imgHidePassword.image
+  }
+
+  static var imgPlay: UIImage {
+      return Asset.Images.imgPlay.image
   }
 
   static var imgShowPassword: UIImage {
@@ -56,10 +76,6 @@ public extension UIImage {
 
   static var imgUser: UIImage {
       return Asset.Images.imgUser.image
-  }
-
-  static var imgXmlid: UIImage {
-      return Asset.Images.imgXmlid.image
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

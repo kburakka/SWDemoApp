@@ -27,7 +27,6 @@ class BaseButton: UIButton {
         
         setTitle(title, for: .normal)
         
-        
         tintColor = titleColor
         if let font = titleFont {
             titleLabel?.font = font

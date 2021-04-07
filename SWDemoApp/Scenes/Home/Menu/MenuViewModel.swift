@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MenuViewDataSource {
-    var menuItems: [String] { get }
+    var menuItemModels: [MenuCellModel] { get }
 }
 
 protocol MenuViewEventSource {}
@@ -16,12 +16,12 @@ protocol MenuViewEventSource {}
 protocol MenuViewProtocol: MenuViewDataSource, MenuViewEventSource {}
 
 final class MenuViewModel: BaseViewModel<MenuRouter>, MenuViewProtocol {
-    var menuItems: [String] = ["Home",
-                               "My Categories",
-                               "My Videos",
-                               "Settings",
-                               "My Account",
-                               "Chat",
-                               "Contact us",
-                               "About us"]
+    var menuItemModels: [MenuCellModel] = [MenuCellModel(title: "Home", isSelected: true),
+                                           MenuCellModel(title: "My Categories", isSelected: false),
+                                           MenuCellModel(title: "My Videos", isSelected: false),
+                                           MenuCellModel(title: "Settings", isSelected: false),
+                                           MenuCellModel(title: "My Account", isSelected: false),
+                                           MenuCellModel(title: "Chat", isSelected: false),
+                                           MenuCellModel(title: "Contact us", isSelected: false),
+                                           MenuCellModel(title: "About us", isSelected: false)]
 }

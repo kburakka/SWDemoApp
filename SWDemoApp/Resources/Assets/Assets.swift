@@ -23,6 +23,7 @@ public typealias AssetImageTypeAlias = ImageAsset.Image
 public enum Asset {
   public enum Colors {
     public static let appAlabaster = ColorAsset(name: "appAlabaster")
+    public static let appAlto = ColorAsset(name: "appAlto")
     public static let appBlack = ColorAsset(name: "appBlack")
     public static let appConcrete = ColorAsset(name: "appConcrete")
     public static let appCyan = ColorAsset(name: "appCyan")
@@ -31,20 +32,24 @@ public enum Asset {
     public static let appWhite = ColorAsset(name: "appWhite")
   }
   public enum Images {
-    public static let appIcon = ImageAsset(name: "appIcon")
-    public static let appIconNav = ImageAsset(name: "appIconNav")
     public static let imgBedroom = ImageAsset(name: "imgBedroom")
-    public static let imgBuilding = ImageAsset(name: "imgBuilding")
     public static let imgClothes = ImageAsset(name: "imgClothes")
     public static let imgDevices = ImageAsset(name: "imgDevices")
     public static let imgElectrical = ImageAsset(name: "imgElectrical")
     public static let imgFirstaid = ImageAsset(name: "imgFirstaid")
     public static let imgGadget = ImageAsset(name: "imgGadget")
+    public static let imgXmlid = ImageAsset(name: "imgXmlid")
+    public static let imgBell = ImageAsset(name: "imgBell")
     public static let imgHamburger = ImageAsset(name: "imgHamburger")
+    public static let imgSearch = ImageAsset(name: "imgSearch")
+    public static let appIcon = ImageAsset(name: "appIcon")
+    public static let appIconNav = ImageAsset(name: "appIconNav")
+    public static let imgBuilding = ImageAsset(name: "imgBuilding")
+    public static let imgClose = ImageAsset(name: "imgClose")
     public static let imgHidePassword = ImageAsset(name: "imgHidePassword")
+    public static let imgPlay = ImageAsset(name: "imgPlay")
     public static let imgShowPassword = ImageAsset(name: "imgShowPassword")
     public static let imgUser = ImageAsset(name: "imgUser")
-    public static let imgXmlid = ImageAsset(name: "imgXmlid")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

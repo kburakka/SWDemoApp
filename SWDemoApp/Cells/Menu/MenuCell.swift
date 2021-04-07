@@ -13,7 +13,7 @@ class MenuCell: UITableViewCell, ReusableView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .font(.omnesSemiBold, size: .large)
+        label.font = .font(.omnesRegular, size: .large)
         label.textColor = .appShaft
         return label
     }()
@@ -29,6 +29,7 @@ class MenuCell: UITableViewCell, ReusableView {
     }
     
     private func configureContents() {
+        contentView.backgroundColor = .clear
         contentView.addSubview(titleLabel)
         titleLabel.edgesToSuperview()
     }
@@ -36,6 +37,11 @@ class MenuCell: UITableViewCell, ReusableView {
     func set(viewModel: MenuCellProtocol) {
         self.viewModel = viewModel
         titleLabel.text = viewModel.title
+        if viewModel.isSelected {
+            titleLabel.font = .font(.omnesSemiBold, size: .large)
+        } else {
+            titleLabel.font = .font(.omnesRegular, size: .large)
+        }
     }
     
 }

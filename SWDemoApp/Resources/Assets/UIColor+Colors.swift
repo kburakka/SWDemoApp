@@ -10,6 +10,10 @@ public extension UIColor {
       return Asset.Colors.appAlabaster.color
   }
 
+  static var appAlto: UIColor {
+      return Asset.Colors.appAlto.color
+  }
+
   static var appBlack: UIColor {
       return Asset.Colors.appBlack.color
   }

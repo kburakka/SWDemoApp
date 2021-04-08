@@ -137,6 +137,10 @@ extension CategoriesViewController: UICollectionViewDelegate {
 @objc
 extension CategoriesViewController {
     func confirmAction() {
-        viewModel.comfirmButtonAction()
+        if viewModel.categories.contains(where: { $0.isSelected == true }) {
+            viewModel.comfirmButtonAction()
+        } else {
+            showAlert(title: "Warning", message: "Please select at least 1 category")
+        }
     }
 }

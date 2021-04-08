@@ -12,7 +12,8 @@ target 'SWDemoApp' do
   pod 'SwiftGen', '~> 6.0'
   pod 'SideMenu', '~> 6.0'
   pod 'Kingfisher', '~> 6.0'
-  
+  pod 'IQKeyboardManagerSwift', '6.3.0'
+
   target 'SWDemoAppTests' do
     inherit! :search_paths
     # Pods for testing

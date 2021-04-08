@@ -62,6 +62,7 @@ class DetailHeaderCell: UITableViewCell, ReusableView {
     }
     
     private func configureContents() {
+        selectionStyle = .none
         contentView.addSubview(containerView)
         containerView.addSubviews([categoryIcon, infoStackView])
         containerView.edgesToSuperview()
@@ -80,7 +81,7 @@ class DetailHeaderCell: UITableViewCell, ReusableView {
         self.viewModel = viewModel
         switch viewModel.detailType {
         case .video:
-            categoryIcon.image = nil
+            categoryIcon.image = .imgApple
             titleLabel.text = viewModel.video?.brand
             videoCountLabel.text = "22 Videos"
         case .category:
@@ -88,6 +89,5 @@ class DetailHeaderCell: UITableViewCell, ReusableView {
             titleLabel.text = viewModel.category?.title
             videoCountLabel.text = "\(viewModel.category?.videoCount ?? 0) Videos"
         }
-        
     }
 }

@@ -51,12 +51,17 @@ public enum Asset {
     public static let imgSearch = ImageAsset(name: "imgSearch")
     public static let appIcon = ImageAsset(name: "appIcon")
     public static let appIconNav = ImageAsset(name: "appIconNav")
+    public static let imgApple = ImageAsset(name: "imgApple")
+    public static let imgArroba = ImageAsset(name: "imgArroba")
     public static let imgBack = ImageAsset(name: "imgBack")
     public static let imgBuilding = ImageAsset(name: "imgBuilding")
     public static let imgChat = ImageAsset(name: "imgChat")
     public static let imgClose = ImageAsset(name: "imgClose")
     public static let imgDownArrow = ImageAsset(name: "imgDownArrow")
+    public static let imgFacebook = ImageAsset(name: "imgFacebook")
     public static let imgHidePassword = ImageAsset(name: "imgHidePassword")
+    public static let imgInstagram = ImageAsset(name: "imgInstagram")
+    public static let imgInternet = ImageAsset(name: "imgInternet")
     public static let imgLike = ImageAsset(name: "imgLike")
     public static let imgPhone = ImageAsset(name: "imgPhone")
     public static let imgPlay = ImageAsset(name: "imgPlay")
@@ -64,6 +69,7 @@ public enum Asset {
     public static let imgShowPassword = ImageAsset(name: "imgShowPassword")
     public static let imgUser = ImageAsset(name: "imgUser")
     public static let imgVideoImage = ImageAsset(name: "imgVideoImage")
+    public static let imgYoutube = ImageAsset(name: "imgYoutube")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

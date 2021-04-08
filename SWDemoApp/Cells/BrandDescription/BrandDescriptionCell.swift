@@ -83,5 +83,6 @@ class BrandDescriptionCell: UITableViewCell, ReusableView {
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.description
         descriptionLabel.numberOfLines = viewModel.numberOfDescLines ?? 0
+        seperetorLine.isHidden = viewModel.isShowSeperatorLine ? false : true
     }
 }

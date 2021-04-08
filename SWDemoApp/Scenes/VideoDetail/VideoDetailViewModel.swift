@@ -47,7 +47,6 @@ final class VideoDetailViewModel: BaseViewModel<VideoDetailRouter>, VideoDetailV
     var accountDetailsCellModel = AccountDetailsCellModel(title: "Account Details")
     
     func accountDetailsTapAction() {
-        print("yoo")
+        router.pushBrandDetail(video: video)
     }
-    
 }

@@ -8,8 +8,13 @@
 import UIKit
 
 final class CategoriesBrandViewController: BaseViewController<CategoriesBrandViewModel> {
-    private let scrollView = UIScrollView()
-    
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
+        return scrollView
+    }()
+
     private let containerView = UIView()
     
     private let titleLabel: UILabel = {

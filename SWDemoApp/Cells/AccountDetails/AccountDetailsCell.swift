@@ -35,6 +35,7 @@ class AccountDetailsCell: UITableViewCell, ReusableView {
     }
 
     private func configureContents() {
+        selectionStyle = .none
         contentView.addSubview(detailButton)
         detailButton.edgesToSuperview()
     }

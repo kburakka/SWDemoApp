@@ -6,3 +6,4 @@
 //
 
 public typealias VoidClosure = (() -> Void)
+public typealias IntClosure = ((Int) -> Void)

@@ -29,6 +29,7 @@ class MenuCell: UITableViewCell, ReusableView {
     }
     
     private func configureContents() {
+        selectionStyle = .none
         contentView.backgroundColor = .clear
         contentView.addSubview(titleLabel)
         titleLabel.edgesToSuperview()

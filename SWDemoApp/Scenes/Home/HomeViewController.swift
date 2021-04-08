@@ -9,7 +9,12 @@ import UIKit
 import SideMenu
 
 final class HomeViewController: BaseViewController<HomeViewModel> {
-    private let scrollView = UIScrollView()
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
+        return scrollView
+    }()
     
     private let containerView = UIView()
     
@@ -56,7 +61,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 20
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.showsHorizontalScrollIndicator = true
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.register(LatestUploadCell.self)
         collectionView.backgroundColor = .clear
         collectionView.dataSource = self

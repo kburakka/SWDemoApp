@@ -13,7 +13,7 @@ final class CategoriesViewController: BaseViewController<CategoriesViewModel> {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 20
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.showsHorizontalScrollIndicator = true
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.register(CategoryCell.self)
         collectionView.register(CategoryHeaderCell.self)
         collectionView.backgroundColor = .clear

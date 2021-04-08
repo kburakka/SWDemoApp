@@ -82,6 +82,14 @@ public extension UIImage {
       return Asset.Images.appIconNav.image
   }
 
+  static var imgApple: UIImage {
+      return Asset.Images.imgApple.image
+  }
+
+  static var imgArroba: UIImage {
+      return Asset.Images.imgArroba.image
+  }
+
   static var imgBack: UIImage {
       return Asset.Images.imgBack.image
   }
@@ -102,8 +110,20 @@ public extension UIImage {
       return Asset.Images.imgDownArrow.image
   }
 
+  static var imgFacebook: UIImage {
+      return Asset.Images.imgFacebook.image
+  }
+
   static var imgHidePassword: UIImage {
       return Asset.Images.imgHidePassword.image
+  }
+
+  static var imgInstagram: UIImage {
+      return Asset.Images.imgInstagram.image
+  }
+
+  static var imgInternet: UIImage {
+      return Asset.Images.imgInternet.image
   }
 
   static var imgLike: UIImage {
@@ -132,6 +152,10 @@ public extension UIImage {
 
   static var imgVideoImage: UIImage {
       return Asset.Images.imgVideoImage.image
+  }
+
+  static var imgYoutube: UIImage {
+      return Asset.Images.imgYoutube.image
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

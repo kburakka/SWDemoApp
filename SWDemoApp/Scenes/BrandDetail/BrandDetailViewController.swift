@@ -1,5 +1,5 @@
 //
-//  VideoDetailViewController.swift
+//  BrandDetailViewController.swift
 //  SWDemoApp
 //
 //  Created by Burak Kaya on 8.04.2021.
@@ -7,29 +7,30 @@
 
 import UIKit
 
-final class VideoDetailViewController: BaseViewController<VideoDetailViewModel> {
-   
+final class BrandDetailViewController: BaseViewController<BrandDetailViewModel> {
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
         tableView.register(DetailHeaderCell.self)
-        tableView.register(BrandVideoCell.self)
+        tableView.register(ChatCell.self)
         tableView.register(BrandDescriptionCell.self)
-        tableView.register(ClickToCell.self)
-        tableView.register(AccountDetailsCell.self)
+        tableView.register(SegmentedControlCell.self)
+        tableView.register(ContactInfoCell.self)
+        tableView.register(BrandCategoryCell.self)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         return tableView
     }()
-    
+        
     enum Section: Int, CaseIterable {
         case header
-        case video
-        case description
-        case features
-        case clickto
-        case accountDetails
+        case chat
+        case segmentedControl
+        case aboutUs
+        case contact
+        case categories
     }
     
     override func viewDidLoad() {
@@ -53,7 +54,7 @@ final class VideoDetailViewController: BaseViewController<VideoDetailViewModel> 
     }
 }
 
-extension VideoDetailViewController: UITableViewDelegate, UITableViewDataSource {
+extension BrandDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 6
     }
@@ -62,16 +63,16 @@ extension VideoDetailViewController: UITableViewDelegate, UITableViewDataSource 
         switch Section(rawValue: section) {
         case .header:
             return 1
-        case .video:
+        case .chat:
             return 1
-        case .description:
+        case .segmentedControl:
             return 1
-        case .features:
-            return 1
-        case .clickto:
-            return 1
-        case .accountDetails:
-            return 1
+        case .aboutUs:
+            return viewModel.segmentSelectedIndex == 0 ? 1 : 0
+        case .contact:
+            return viewModel.segmentSelectedIndex == 0 ? 1 : 0
+        case .categories:
+            return viewModel.segmentSelectedIndex == 1 ? 1 : 0
         case .none:
             return 0
         }
@@ -84,35 +85,34 @@ extension VideoDetailViewController: UITableViewDelegate, UITableViewDataSource 
             let viewModel = DetailHeaderCellModel(video: self.viewModel.video, detailType: .video)
             cell.set(viewModel: viewModel)
             return cell
-        case .video:
-            let cell: BrandVideoCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.playButton.addTarget(self,
-                                      action: #selector(playAction),
-                                      for: .touchUpInside)
-            let viewModel = BrandVideoCellModel(video: self.viewModel.video)
+        case .chat:
+            let cell: ChatCell = tableView.dequeueReusableCell(for: indexPath)
+            let viewModel = ChatCellModel()
             cell.set(viewModel: viewModel)
             return cell
-        case .description:
+        case .segmentedControl:
+            let cell: SegmentedControlCell = tableView.dequeueReusableCell(for: indexPath)
+            let viewModel = self.viewModel.segmentCellModel
+            viewModel.segmentedControlClosure = { index in
+                viewModel.selectedIndex = index
+                self.viewModel.segmentSelectedIndex = index
+                tableView.reloadData()
+            }
+            cell.set(viewModel: viewModel)
+            return cell
+        case .aboutUs:
             let cell: BrandDescriptionCell = tableView.dequeueReusableCell(for: indexPath)
-            let viewModel = self.viewModel.descriptionCellModel
+            let viewModel = self.viewModel.aboutUsCellModel
             cell.set(viewModel: viewModel)
             return cell
-        case .features:
-            let cell: BrandDescriptionCell = tableView.dequeueReusableCell(for: indexPath)
-            let viewModel = self.viewModel.featuresCellModel
+        case .contact:
+            let cell: ContactInfoCell = tableView.dequeueReusableCell(for: indexPath)
+            let viewModel = ContactInfoCellModel(title: "Contact Info")
             cell.set(viewModel: viewModel)
             return cell
-        case .clickto:
-            let cell: ClickToCell = tableView.dequeueReusableCell(for: indexPath)
-            let viewModel = self.viewModel.clickCellModel
-            cell.set(viewModel: viewModel)
-            return cell
-        case .accountDetails:
-            let cell: AccountDetailsCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.detailButton.addTarget(self,
-                                        action: #selector(detailAction),
-                                        for: .touchUpInside)
-            let viewModel = self.viewModel.accountDetailsCellModel
+        case .categories:
+            let cell: BrandCategoryCell = tableView.dequeueReusableCell(for: indexPath)
+            let viewModel = self.viewModel.categoriesCellModel
             cell.set(viewModel: viewModel)
             return cell
         case .none:
@@ -124,32 +124,18 @@ extension VideoDetailViewController: UITableViewDelegate, UITableViewDataSource 
         switch Section(rawValue: indexPath.section) {
         case .header:
             return 130
-        case .video:
-            return 416
-        case .clickto:
-            return 130
-        case .description:
+        case .chat:
+            return 105
+        case .segmentedControl:
+            return 70
+        case .aboutUs:
             return UITableView.automaticDimension
-        case .features:
+        case .contact:
+            return 210
+        case .categories:
             return UITableView.automaticDimension
-        case .accountDetails:
-            return 106
         case .none:
-            return 130
-        }
-    }
-}
-
-// MARK: - Action
-@objc
-extension VideoDetailViewController {
-    func detailAction() {
-        viewModel.accountDetailsTapAction()
-    }
-    
-    func playAction() {
-        if let url = URL(string: viewModel.video?.url ?? "") {
-            playVideo(url: url)
+            return 0
         }
     }
 }

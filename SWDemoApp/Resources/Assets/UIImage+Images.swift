@@ -90,8 +90,16 @@ public extension UIImage {
       return Asset.Images.imgBuilding.image
   }
 
+  static var imgChat: UIImage {
+      return Asset.Images.imgChat.image
+  }
+
   static var imgClose: UIImage {
       return Asset.Images.imgClose.image
+  }
+
+  static var imgDownArrow: UIImage {
+      return Asset.Images.imgDownArrow.image
   }
 
   static var imgHidePassword: UIImage {
@@ -102,8 +110,16 @@ public extension UIImage {
       return Asset.Images.imgLike.image
   }
 
+  static var imgPhone: UIImage {
+      return Asset.Images.imgPhone.image
+  }
+
   static var imgPlay: UIImage {
       return Asset.Images.imgPlay.image
+  }
+
+  static var imgShopping: UIImage {
+      return Asset.Images.imgShopping.image
   }
 
   static var imgShowPassword: UIImage {

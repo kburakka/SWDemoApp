@@ -12,8 +12,11 @@ final class VideoDetailViewController: BaseViewController<VideoDetailViewModel> 
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
-        tableView.allowsSelection = false
         tableView.register(DetailHeaderCell.self)
+        tableView.register(BrandVideoCell.self)
+        tableView.register(BrandDescriptionCell.self)
+        tableView.register(ClickToCell.self)
+        tableView.register(AccountDetailsCell.self)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
@@ -26,6 +29,7 @@ final class VideoDetailViewController: BaseViewController<VideoDetailViewModel> 
         case description
         case features
         case clickto
+        case accountDetails
     }
     
     override func viewDidLoad() {
@@ -45,7 +49,7 @@ final class VideoDetailViewController: BaseViewController<VideoDetailViewModel> 
 
 extension VideoDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 6
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,13 +57,15 @@ extension VideoDetailViewController: UITableViewDelegate, UITableViewDataSource 
         case .header:
             return 1
         case .video:
-            return 0
-        case .clickto:
-            return 0
+            return 1
         case .description:
-            return 0
+            return 1
         case .features:
-            return 0
+            return 1
+        case .clickto:
+            return 1
+        case .accountDetails:
+            return 1
         case .none:
             return 0
         }
@@ -73,13 +79,36 @@ extension VideoDetailViewController: UITableViewDelegate, UITableViewDataSource 
             cell.set(viewModel: viewModel)
             return cell
         case .video:
-            return UITableViewCell()
-        case .clickto:
-            return UITableViewCell()
+            let cell: BrandVideoCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.playButton.addTarget(self,
+                                      action: #selector(playAction),
+                                      for: .touchUpInside)
+            let viewModel = BrandVideoCellModel(video: self.viewModel.video)
+            cell.set(viewModel: viewModel)
+            return cell
         case .description:
-            return UITableViewCell()
+            let cell: BrandDescriptionCell = tableView.dequeueReusableCell(for: indexPath)
+            let viewModel = self.viewModel.descriptionCellModel
+            cell.set(viewModel: viewModel)
+            return cell
         case .features:
-            return UITableViewCell()
+            let cell: BrandDescriptionCell = tableView.dequeueReusableCell(for: indexPath)
+            let viewModel = self.viewModel.featuresCellModel
+            cell.set(viewModel: viewModel)
+            return cell
+        case .clickto:
+            let cell: ClickToCell = tableView.dequeueReusableCell(for: indexPath)
+            let viewModel = self.viewModel.clickCellModel
+            cell.set(viewModel: viewModel)
+            return cell
+        case .accountDetails:
+            let cell: AccountDetailsCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.detailButton.addTarget(self,
+                                        action: #selector(detailAction),
+                                        for: .touchUpInside)
+            let viewModel = self.viewModel.accountDetailsCellModel
+            cell.set(viewModel: viewModel)
+            return cell
         case .none:
             return UITableViewCell()
         }
@@ -90,15 +119,31 @@ extension VideoDetailViewController: UITableViewDelegate, UITableViewDataSource 
         case .header:
             return 130
         case .video:
-            return 130
+            return 416
         case .clickto:
             return 130
         case .description:
-            return 130
+            return UITableView.automaticDimension
         case .features:
-            return 130
+            return UITableView.automaticDimension
+        case .accountDetails:
+            return 106
         case .none:
             return 130
+        }
+    }
+}
+
+// MARK: - Action
+@objc
+extension VideoDetailViewController {
+    func detailAction() {
+        viewModel.accountDetailsTapAction()
+    }
+    
+    func playAction() {
+        if let url = URL(string: viewModel.video?.url ?? "") {
+            playVideo(url: url)
         }
     }
 }

@@ -7,8 +7,6 @@
 
 import UIKit
 import SideMenu
-import AVFoundation
-import AVKit
 
 final class HomeViewController: BaseViewController<HomeViewModel> {
     private let scrollView = UIScrollView()
@@ -269,17 +267,6 @@ private extension HomeViewController {
 
 // MARK: - Helper
 private extension HomeViewController {
-    func playVideo(url: URL) {
-        let player = AVPlayer(url: url)
-        
-        let avpController = AVPlayerViewController()
-        avpController.player = player
-        
-        self.present(avpController, animated: true) {
-            avpController.player?.play()
-        }
-    }
-    
     func setCategories() {
         var categoryCards: [HomeCategoryCard] = []
         

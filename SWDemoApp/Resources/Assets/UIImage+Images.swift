@@ -114,6 +114,10 @@ public extension UIImage {
       return Asset.Images.imgFacebook.image
   }
 
+  static var imgFemale: UIImage {
+      return Asset.Images.imgFemale.image
+  }
+
   static var imgHidePassword: UIImage {
       return Asset.Images.imgHidePassword.image
   }
@@ -128,6 +132,10 @@ public extension UIImage {
 
   static var imgLike: UIImage {
       return Asset.Images.imgLike.image
+  }
+
+  static var imgMale: UIImage {
+      return Asset.Images.imgMale.image
   }
 
   static var imgPhone: UIImage {
@@ -148,10 +156,6 @@ public extension UIImage {
 
   static var imgUser: UIImage {
       return Asset.Images.imgUser.image
-  }
-
-  static var imgVideoImage: UIImage {
-      return Asset.Images.imgVideoImage.image
   }
 
   static var imgYoutube: UIImage {

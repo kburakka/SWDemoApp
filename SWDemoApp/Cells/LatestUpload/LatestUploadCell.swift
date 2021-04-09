@@ -21,7 +21,6 @@ class LatestUploadCell: UICollectionViewCell, ReusableView {
     private let videoImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
-        imageView.image = .imgVideoImage
         imageView.clipsToBounds = true
         return imageView
     }()

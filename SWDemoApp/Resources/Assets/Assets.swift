@@ -59,16 +59,17 @@ public enum Asset {
     public static let imgClose = ImageAsset(name: "imgClose")
     public static let imgDownArrow = ImageAsset(name: "imgDownArrow")
     public static let imgFacebook = ImageAsset(name: "imgFacebook")
+    public static let imgFemale = ImageAsset(name: "imgFemale")
     public static let imgHidePassword = ImageAsset(name: "imgHidePassword")
     public static let imgInstagram = ImageAsset(name: "imgInstagram")
     public static let imgInternet = ImageAsset(name: "imgInternet")
     public static let imgLike = ImageAsset(name: "imgLike")
+    public static let imgMale = ImageAsset(name: "imgMale")
     public static let imgPhone = ImageAsset(name: "imgPhone")
     public static let imgPlay = ImageAsset(name: "imgPlay")
     public static let imgShopping = ImageAsset(name: "imgShopping")
     public static let imgShowPassword = ImageAsset(name: "imgShowPassword")
     public static let imgUser = ImageAsset(name: "imgUser")
-    public static let imgVideoImage = ImageAsset(name: "imgVideoImage")
     public static let imgYoutube = ImageAsset(name: "imgYoutube")
   }
 }

@@ -34,12 +34,15 @@ final class SignUpViewController: BaseViewController<SignUpViewModel> {
         return label
     }()
     
+    private let genderView = GenderView()
+    
     private lazy var personalDetailsStackView: UIStackView = {
         return UIStackView(arrangedSubviews: [personalDetailTitleLabel,
                                               nameTextField,
                                               surnameTextField,
                                               ageTextField,
-                                              phoneNumberTextField],
+                                              phoneNumberTextField,
+                                              genderView],
                            axis: .vertical,
                            spacing: 15,
                            alignment: .fill,

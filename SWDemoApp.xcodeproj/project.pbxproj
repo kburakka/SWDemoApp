@@ -130,6 +130,8 @@
 		B3A8BB3C261F36DB000568C8 /* SegmentedControlCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BB3A261F36DB000568C8 /* SegmentedControlCellModel.swift */; };
 		B3A8BB46261F6FDA000568C8 /* BrandCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BB44261F6FDA000568C8 /* BrandCategoryCell.swift */; };
 		B3A8BB47261F6FDA000568C8 /* BrandCategoryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BB45261F6FDA000568C8 /* BrandCategoryCellModel.swift */; };
+		B3A8BB6226208606000568C8 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BB6126208605000568C8 /* GenderView.swift */; };
+		B3A8BB682620D369000568C8 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BB672620D369000568C8 /* Gender.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -282,6 +284,8 @@
 		B3A8BB3A261F36DB000568C8 /* SegmentedControlCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlCellModel.swift; sourceTree = "<group>"; };
 		B3A8BB44261F6FDA000568C8 /* BrandCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCategoryCell.swift; sourceTree = "<group>"; };
 		B3A8BB45261F6FDA000568C8 /* BrandCategoryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCategoryCellModel.swift; sourceTree = "<group>"; };
+		B3A8BB6126208605000568C8 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
+		B3A8BB672620D369000568C8 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		E294079B99E6FC024C8BA5E9 /* Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SWDemoApp-SWDemoAppUITests/Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7AE278F77EEBE64FAE1B4EE /* Pods_SWDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81DE28F58DD1078EE47A918 /* Pods_SWDemoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWDemoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -544,6 +548,7 @@
 				B308E9CB261E251500E45656 /* CategoriesBrandCard.swift */,
 				B308EA39261F003800E45656 /* ClickCard.swift */,
 				B3A8BB33261F32A7000568C8 /* SocialCard.swift */,
+				B3A8BB6126208605000568C8 /* GenderView.swift */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -706,6 +711,7 @@
 				B308E9E3261E2AE000E45656 /* Video.swift */,
 				B308EA0D261E599100E45656 /* DetailType.swift */,
 				B308EA3E261F01D100E45656 /* Click.swift */,
+				B3A8BB672620D369000568C8 /* Gender.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1198,6 +1204,7 @@
 				B308EA54261F1F3800E45656 /* BaseSegmentedControl.swift in Sources */,
 				B308EA64261F241F00E45656 /* BrandDetailViewModel.swift in Sources */,
 				B308E93E261CFB8500E45656 /* BaseNavigationController.swift in Sources */,
+				B3A8BB682620D369000568C8 /* Gender.swift in Sources */,
 				B3A8BB34261F32A7000568C8 /* SocialCard.swift in Sources */,
 				B308E9F7261E49FA00E45656 /* CategoryVideoCellModel.swift in Sources */,
 				B308EA32261EFAE600E45656 /* ClickToCellModel.swift in Sources */,
@@ -1209,6 +1216,7 @@
 				B3A8BB46261F6FDA000568C8 /* BrandCategoryCell.swift in Sources */,
 				B308EA3A261F003800E45656 /* ClickCard.swift in Sources */,
 				B308E908261CC49200E45656 /* CategoryCellModel.swift in Sources */,
+				B3A8BB6226208606000568C8 /* GenderView.swift in Sources */,
 				B308E88B261C7BCA00E45656 /* SignUpViewController.swift in Sources */,
 				B308E803261B608100E45656 /* Fonts.swift in Sources */,
 				B308E907261CC49100E45656 /* CategoryCell.swift in Sources */,

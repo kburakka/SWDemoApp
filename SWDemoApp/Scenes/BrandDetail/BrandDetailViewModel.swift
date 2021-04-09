@@ -22,7 +22,7 @@ protocol BrandDetailViewEventSource {}
 protocol BrandDetailViewProtocol: BrandDetailViewDataSource, BrandDetailViewEventSource {}
 
 final class BrandDetailViewModel: BaseViewModel<BrandDetailRouter>, BrandDetailViewProtocol {
-    var categories: [Category] =  [Category(id: 1,
+    var categories: [Category] = [Category(id: 1,
                                             title: "Home furnishing",
                                             icon: .imgBedroom,
                                             iconWhite: .imgBedroomWhite,

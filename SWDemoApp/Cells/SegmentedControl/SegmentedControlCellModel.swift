@@ -20,7 +20,7 @@ protocol SegmentedControlCellProtocol: SegmentedControlCellDataSource, Segmented
 final class SegmentedControlCellModel: SegmentedControlCellProtocol {
     var selectedIndex: Int
     
-    var segmentedControlClosure: IntClosure? = nil
+    var segmentedControlClosure: IntClosure?
     
     var titles: [String]
 

@@ -13,6 +13,7 @@ target 'SWDemoApp' do
   pod 'SideMenu', '~> 6.0'
   pod 'Kingfisher', '~> 6.0'
   pod 'IQKeyboardManagerSwift', '6.3.0'
+  pod 'lottie-ios', '~> 3.2.0'
 
   target 'SWDemoAppTests' do
     inherit! :search_paths

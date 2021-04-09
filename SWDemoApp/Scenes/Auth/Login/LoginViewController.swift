@@ -51,6 +51,9 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
                                 titleFont: .font(.omnesSemiBold, size: .medium),
                                 titleColor: .appWhite,
                                 backgroundColor: UIColor.appWhite.withAlphaComponent(0.1))
+        button.addTarget(self,
+                         action: #selector(loginAction),
+                         for: .touchUpInside)
         return button
     }()
     
@@ -59,6 +62,9 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
                                 titleFont: .font(.omnesLight, size: .medium),
                                 titleColor: UIColor.appWhite.withAlphaComponent(0.6),
                                 backgroundColor: .clear)
+        button.addTarget(self,
+                         action: #selector(forgotAction),
+                         for: .touchUpInside)
         return button
     }()
     
@@ -179,5 +185,17 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
 private extension LoginViewController {
     func registerAction() {
         viewModel.registerButtonAction()
+    }
+    
+    func loginAction() {
+        if let email = emailTextField.text, let password = passwordTextfield.text {
+            viewModel.loginButtonAction(email: email, password: password)
+        } else {
+            showAlert(title: "Warning", message: "Please fill e maild and password fields")
+        }
+    }
+    
+    func forgotAction() {
+        viewModel.forgotButtonAction()
     }
 }

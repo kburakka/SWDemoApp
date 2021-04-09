@@ -19,15 +19,20 @@ protocol BaseViewModelProtocol: BaseViewModelDataSource, BaseViewModelEventSourc
 class BaseViewModel<R: Router>: BaseViewModelProtocol {
     var router: R
     
-    init(router: R) {
+    var dataProvider: DataProviderProtocol
+
+    private var hud = LoadingHelper("loading")
+
+    init(router: R, dataProvider: DataProviderProtocol = ApiProvider.shared) {
         self.router = router
+        self.dataProvider = dataProvider
     }
     
     func showLoadingView() {
-        // TO DO
+        hud.showHUD()
     }
     
     func hideLoadingView() {
-        // TO DO
+        hud.stopHUD()
     }
 }

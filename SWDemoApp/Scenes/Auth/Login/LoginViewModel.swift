@@ -20,6 +20,17 @@ protocol LoginViewProtocol: LoginViewDataSource, LoginViewEventSource {}
 final class LoginViewModel: BaseViewModel<LoginRouter>, LoginViewProtocol {
     func loginButtonAction(email: String, password: String) {
         // to do
+        let request = TestRequest()
+        dataProvider.getData(for: request) { [weak self] (result) in
+            guard let self = self else { return }
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print(error)
+            }
+        }
+
     }
     
     func registerButtonAction() {

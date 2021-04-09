@@ -16,6 +16,8 @@ class CategoryHeaderCell: UICollectionViewCell, ReusableView {
         label.font = .font(.omnesSemiBold, size: .xLarge)
         label.textColor = .appShaft
         label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         return label
     }()
     

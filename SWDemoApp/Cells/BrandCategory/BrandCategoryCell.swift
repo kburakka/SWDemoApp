@@ -44,6 +44,7 @@ class BrandCategoryCell: UITableViewCell, ReusableView {
     }
     
     private func configureContents() {
+        selectionStyle = .none
         contentView.addSubviews([titleLabel, categoriesStackView])
         titleLabel.topToSuperview(offset: 30)
         titleLabel.edgesToSuperview(excluding: [.bottom, .top])

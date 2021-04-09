@@ -31,6 +31,8 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
         label.textColor = .appWhite
         label.text = "Welcome!\nYou’ve been missed"
         label.numberOfLines = 2
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         return label
     }()
     
@@ -96,8 +98,9 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
         label.font = .font(.omnesRegular, size: .medium)
         label.textColor = .appWhite
         label.text = "Don't have an account?"
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         label.textAlignment = .left
-        label.numberOfLines = 0
         return label
     }()
     
@@ -125,7 +128,7 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
         appIconImageView.centerXToSuperview()
         appIconImageView.height(92)
         appIconImageView.width(92)
-        appIconImageView.topToSuperview(offset: 20, usingSafeArea: true)
+        appIconImageView.topToSuperview(offset: 30, relation: .equalOrLess, usingSafeArea: true)
         
         descriptionLabel.topToBottom(of: appIconImageView, offset: 8)
         descriptionLabel.height(20)
@@ -136,30 +139,30 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
         bodyView.topToBottom(of: descriptionLabel)
         bodyView.bottomToTop(of: bottomView)
 
-        stackView.leadingToSuperview(offset: 25)
-        stackView.trailingToSuperview(offset: 25)
+        stackView.leadingToSuperview(offset: 30)
+        stackView.trailingToSuperview(offset: 30)
         stackView.centerYToSuperview()
         
         titleLabel.height(71)
         
         emailTextField.leadingToSuperview()
         emailTextField.trailingToSuperview()
-        emailTextField.topToBottom(of: titleLabel, offset: 30)
+        emailTextField.topToBottom(of: titleLabel, offset: 30, relation: .equalOrLess)
 
         passwordTextfield.leadingToSuperview()
         passwordTextfield.trailingToSuperview()
-        passwordTextfield.topToBottom(of: emailTextField, offset: 15)
+        passwordTextfield.topToBottom(of: emailTextField, offset: 15, relation: .equalOrLess)
         
         loginButton.leadingToSuperview()
         loginButton.trailingToSuperview()
-        loginButton.topToBottom(of: passwordTextfield, offset: 30)
+        loginButton.topToBottom(of: passwordTextfield, offset: 30, relation: .equalOrLess)
         
         forgotButton.centerXToSuperview()
         forgotButton.height(20)
-        forgotButton.topToBottom(of: loginButton, offset: 30)
+        forgotButton.topToBottom(of: loginButton, offset: 30, relation: .equalOrLess)
 
-        bottomView.leadingToSuperview(offset: 25)
-        bottomView.trailingToSuperview(offset: 25)
+        bottomView.leadingToSuperview(offset: 30)
+        bottomView.trailingToSuperview(offset: 30)
         bottomView.height(52)
         bottomView.bottomToSuperview(offset: -20, usingSafeArea: true)
         
@@ -167,7 +170,7 @@ final class LoginViewController: BaseViewController<LoginViewModel> {
         registerButton.edgesToSuperview(excluding: .leading, insets: .init(top: 7, left: 7, bottom: 7, right: 7))
         
         registerLabel.edgesToSuperview(excluding: .trailing, insets: .init(top: 7, left: 20, bottom: 7, right: 7))
-        registerLabel.trailingToLeading(of: registerButton, offset: 7)
+        registerLabel.trailingToLeading(of: registerButton, offset: -7)
     }
 }
 

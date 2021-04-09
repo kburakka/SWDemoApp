@@ -24,6 +24,8 @@ class CategoryCell: UICollectionViewCell, ReusableView {
         let label = UILabel()
         label.font = .font(.omnesSemiBold, size: .medium)
         label.textColor = .appShaft
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         return label
     }()
     

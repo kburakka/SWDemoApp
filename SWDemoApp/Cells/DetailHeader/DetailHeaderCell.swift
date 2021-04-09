@@ -28,6 +28,8 @@ class DetailHeaderCell: UITableViewCell, ReusableView {
         let label = UILabel()
         label.font = .font(.omnesSemiBold, size: .custom(size: 26))
         label.textColor = .appShaft
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         return label
     }()
     
@@ -35,6 +37,8 @@ class DetailHeaderCell: UITableViewCell, ReusableView {
         let label = UILabel()
         label.font = .font(.omnesRegular, size: .custom(size: 26))
         label.textColor = .appShaft
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         return label
     }()
     

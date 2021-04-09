@@ -39,6 +39,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         searchBar.searchTextField.clipsToBounds = true
         searchBar.backgroundImage = UIImage()
         searchBar.searchTextPositionAdjustment = UIOffset(horizontal: 5, vertical: 0)
+        searchBar.searchTextField.adjustsFontSizeToFitWidth = true
         return searchBar
     }()
 
@@ -142,7 +143,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         notificationButton.height(46)
         notificationButton.width(46)
         
-        latestUploadView.topToBottom(of: searchBar, offset: 30)
+        latestUploadView.topToBottom(of: searchBar, offset: 25)
         latestUploadView.leadingToSuperview()
         latestUploadView.trailingToSuperview()
         latestUploadView.height(310)
@@ -152,7 +153,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         latestUploadLabel.trailingToSuperview(offset: -20)
         latestUploadLabel.height(20)
         
-        collectionView.topToBottom(of: latestUploadLabel, offset: 30)
+        collectionView.topToBottom(of: latestUploadLabel, offset: 20)
         collectionView.leadingToSuperview()
         collectionView.trailingToSuperview()
         collectionView.height(260)
@@ -168,7 +169,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         fountCategoriesLabel.trailingToSuperview(offset: -20)
         fountCategoriesLabel.height(20)
         
-        categoriesStackView.topToBottom(of: fountCategoriesLabel, offset: 30)
+        categoriesStackView.topToBottom(of: fountCategoriesLabel, offset: 20)
         categoriesStackView.leadingToSuperview(offset: 20)
         categoriesStackView.trailingToSuperview(offset: 20)
         
@@ -202,8 +203,25 @@ extension HomeViewController {
     func presentSideMenu() {
         viewModel.leftItemAction(from: self)
     }
+    
+    func playButtonAction(sender: UIButton) {
+        if let url = URL(string: viewModel.latestUploadModels[sender.tag].video.url) {
+            playVideo(url: url)
+        }
+    }
+    
+    func showMoreAction() {
+        viewModel.showMoreAction()
+    }
+    
+    func handleCategoryTap(_ sender: UITapGestureRecognizer? = nil) {
+        if let tag = sender?.view?.tag {
+            viewModel.categoryDetailAction(id: tag)
+        }
+    }
 }
 
+// MARK: - Side Menu
 extension HomeViewController: SideMenuNavigationControllerDelegate {
     func sideMenuWillAppear(menu: SideMenuNavigationController, animated: Bool) {
         view.addSubview(transparentView)
@@ -215,6 +233,7 @@ extension HomeViewController: SideMenuNavigationControllerDelegate {
     }
 }
 
+// MARK: - UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -247,26 +266,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
-    }
-}
-
-// MARK: - Action
-@objc
-private extension HomeViewController {
-    func playButtonAction(sender: UIButton) {
-        if let url = URL(string: viewModel.latestUploadModels[sender.tag].video.url) {
-            playVideo(url: url)
-        }
-    }
-    
-    func showMoreAction() {
-        viewModel.showMoreAction()
-    }
-    
-    func handleCategoryTap(_ sender: UITapGestureRecognizer? = nil) {
-        if let tag = sender?.view?.tag {
-            viewModel.categoryDetailAction(id: tag)
-        }
     }
 }
 

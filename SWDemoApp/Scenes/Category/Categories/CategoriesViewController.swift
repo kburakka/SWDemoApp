@@ -11,15 +11,15 @@ final class CategoriesViewController: BaseViewController<CategoriesViewModel> {
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 20
+        layout.minimumLineSpacing = 30
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(CategoryCell.self)
         collectionView.register(CategoryHeaderCell.self)
         collectionView.backgroundColor = .clear
         collectionView.dataSource = self
-        collectionView.contentInset.left = 20
-        collectionView.contentInset.right = 20
+        collectionView.contentInset.left = 30
+        collectionView.contentInset.right = 30
         collectionView.contentInset.bottom = 120
         collectionView.delegate = self
         return collectionView
@@ -91,9 +91,11 @@ extension CategoriesViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            return CGSize(width: collectionView.frame.width - 40, height: 110)
+            return CGSize(width: collectionView.frame.width - 60, height: 110)
         } else {
-            return CGSize(width: 140, height: 180)
+            let width = (collectionView.frame.width - 90) / 2
+            let height = 180 * width / 140
+            return CGSize(width: width, height: height)
         }
     }
     
@@ -101,26 +103,8 @@ extension CategoriesViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         if section == 0 {
-            return UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+            return UIEdgeInsets(top: 20, left: 40, bottom: 0, right: 40)
         } else {
-            let cellCount = CGFloat(viewModel.categoryCellModels.count)
-
-            if cellCount > 0 {
-                if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
-                    let cellWidth = flowLayout.itemSize.width + flowLayout.minimumInteritemSpacing
-
-                    let totalCellWidth = cellWidth * cellCount + 20.00 * (cellCount - 1)
-                    let contentWidth = collectionView.frame.size.width - collectionView.contentInset.left - collectionView.contentInset.right
-
-                    if totalCellWidth < contentWidth {
-                        let padding = (contentWidth - totalCellWidth) / 2.0
-                        return UIEdgeInsets(top: 30, left: padding, bottom: 0, right: padding)
-                    } else {
-                        return UIEdgeInsets(top: 30, left: 20, bottom: 0, right: 20)
-                    }
-                }
-                return UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
-            }
             return UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
         }
     }

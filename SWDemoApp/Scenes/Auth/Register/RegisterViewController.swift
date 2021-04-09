@@ -32,6 +32,8 @@ final class RegisterViewController: BaseViewController<RegisterViewModel> {
         label.font = .font(.omnesSemiBold, size: .xLarge)
         label.textColor = .appShaft
         label.text = "Select sing up option"
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         return label
     }()
     
@@ -90,8 +92,9 @@ final class RegisterViewController: BaseViewController<RegisterViewModel> {
         label.font = .font(.omnesRegular, size: .medium)
         label.textColor = .appShaft
         label.text = "Already a member?"
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         label.textAlignment = .left
-        label.numberOfLines = 0
         return label
     }()
     
@@ -129,7 +132,7 @@ final class RegisterViewController: BaseViewController<RegisterViewModel> {
         bodyView.leadingToSuperview()
         bodyView.trailingToSuperview()
         
-        ownButton.topToBottom(of: titleLabel, offset: 30)
+        ownButton.topToBottom(of: titleLabel, offset: 30, relation: .equalOrLess)
         ownButton.leadingToSuperview()
         ownButton.trailingToSuperview()
         
@@ -137,11 +140,11 @@ final class RegisterViewController: BaseViewController<RegisterViewModel> {
         signUpButton.trailingToSuperview()
         
         stackView.centerYToSuperview()
-        stackView.leadingToSuperview(offset: 25)
-        stackView.trailingToSuperview(offset: 25)
+        stackView.leadingToSuperview(offset: 30)
+        stackView.trailingToSuperview(offset: 30)
         
-        bottomView.leadingToSuperview(offset: 25)
-        bottomView.trailingToSuperview(offset: 25)
+        bottomView.leadingToSuperview(offset: 30)
+        bottomView.trailingToSuperview(offset: 30)
         bottomView.height(52)
         bottomView.bottomToSuperview(offset: -20, usingSafeArea: true)
         
@@ -149,7 +152,7 @@ final class RegisterViewController: BaseViewController<RegisterViewModel> {
         loginButton.edgesToSuperview(excluding: .leading, insets: .init(top: 7, left: 7, bottom: 7, right: 7))
         
         loginLabel.edgesToSuperview(excluding: .trailing, insets: .init(top: 7, left: 20, bottom: 7, right: 7))
-        loginLabel.trailingToLeading(of: loginButton, offset: 7)
+        loginLabel.trailingToLeading(of: loginButton, offset: -7)
         view.layoutIfNeeded()
     }
 }

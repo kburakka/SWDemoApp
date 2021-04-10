@@ -39,7 +39,6 @@ extension UIStackView {
     }
 
     func removeAllArrangedSubviews() {
-        
         let removedSubviews = arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
             self.removeArrangedSubview(subview)
             return allSubviews + [subview]

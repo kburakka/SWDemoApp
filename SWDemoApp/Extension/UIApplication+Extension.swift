@@ -8,7 +8,12 @@
 import UIKit
 
 public extension UIApplication {
-    class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+    class func topViewController(controller: UIViewController? = nil) -> UIViewController? {
+        var defaultController = controller
+        if defaultController == nil {
+            defaultController = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.rootViewController
+        }
+            
         if let navigationController = controller as? UINavigationController {
             return topViewController(controller: navigationController.visibleViewController)
         }

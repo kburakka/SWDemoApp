@@ -54,7 +54,7 @@ public final class LoadingHelper {
     
     private func createHUD(delay: TimeInterval = 0.0) {
         DispatchQueue.main.async {
-            UIApplication.shared.keyWindow!.isUserInteractionEnabled = false
+            UIApplication.shared.windows.first(where: { $0.isKeyWindow })!.isUserInteractionEnabled = false
             self.configureMask()
             self.configureConstraints()
             UIView.animate(withDuration: LoadingConfig.animationDuration, delay: delay, options: .curveEaseIn, animations: {
@@ -98,7 +98,7 @@ public final class LoadingHelper {
             UIView.animate(withDuration: LoadingConfig.animationDuration, delay: 0, options: .curveEaseIn, animations: {
                 self.maskView.alpha = 0.0
             }) { _ in
-                UIApplication.shared.keyWindow!.isUserInteractionEnabled = true
+                UIApplication.shared.windows.first(where: { $0.isKeyWindow })!.isUserInteractionEnabled = true
                 self.maskView.removeFromSuperview()
                 self._lottie.stop()
             }

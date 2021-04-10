@@ -13,7 +13,7 @@ public extension UITableView {
         register(T.self, forCellReuseIdentifier: T.defaultReuseIdentifier)
     }
     
-    // swiftlint:disable fatal_error unavailable_function
+    // swiftlint:disable all
     func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T where T: ReusableView {
         guard let cell = dequeueReusableCell(withIdentifier: T.defaultReuseIdentifier, for: indexPath) as? T else {
             fatalError("Could not dequeue cell with identifier: \(T.defaultReuseIdentifier)")
@@ -27,5 +27,5 @@ public extension UITableView {
         }
         return cell
     }
-    // swiftlint:enable fatal_error unavailable_function
+    // swiftlint:enable all
 }

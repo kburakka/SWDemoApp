@@ -50,25 +50,25 @@ final class SignUpViewController: BaseViewController<SignUpViewModel> {
     }()
     
     private lazy var nameTextField: BaseTextField = {
-        let textField = AppTextField.passiveTextField(placeholder: "Name*")
+        let textField = AppTextFieldHelper.passiveTextField(placeholder: "Name*")
         textField.delegate = self
         return textField
     }()
     
     private lazy var surnameTextField: BaseTextField = {
-        let textField = AppTextField.passiveTextField(placeholder: "Surname*")
+        let textField = AppTextFieldHelper.passiveTextField(placeholder: "Surname*")
         textField.delegate = self
         return textField
     }()
     
     private lazy var ageTextField: BaseTextField = {
-        let textField = AppTextField.passiveTextField(placeholder: "Age*")
+        let textField = AppTextFieldHelper.passiveTextField(placeholder: "Age*")
         textField.delegate = self
         return textField
     }()
     
     private lazy var phoneNumberTextField: BaseTextField = {
-        let textField = AppTextField.passiveTextField(placeholder: "Phone Number*")
+        let textField = AppTextFieldHelper.passiveTextField(placeholder: "Phone Number*")
         textField.delegate = self
         return textField
     }()
@@ -93,19 +93,19 @@ final class SignUpViewController: BaseViewController<SignUpViewModel> {
     }()
     
     private lazy var emailTextField: BaseTextField = {
-        let textField = AppTextField.passiveTextField(placeholder: "E-mail*")
+        let textField = AppTextFieldHelper.passiveTextField(placeholder: "E-mail*")
         textField.delegate = self
         return textField
     }()
     
     private lazy var passwordTextField: BaseTextField = {
-        let textField = AppTextField.passiveTextField(placeholder: "Password*")
+        let textField = AppTextFieldHelper.passiveTextField(placeholder: "Password*")
         textField.delegate = self
         return textField
     }()
     
     private lazy var repasswordTextField: BaseTextField = {
-        let textField = AppTextField.passiveTextField(placeholder: "Confirm Password*")
+        let textField = AppTextFieldHelper.passiveTextField(placeholder: "Confirm Password*")
         textField.delegate = self
         return textField
     }()
@@ -270,13 +270,13 @@ final class SignUpViewController: BaseViewController<SignUpViewModel> {
 extension SignUpViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField is BaseTextField {
-            AppTextField.enableTextField(textField as? BaseTextField)
+            AppTextFieldHelper.enableTextField(textField as? BaseTextField)
         }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField is BaseTextField && textField.text?.isEmpty ?? true {
-            AppTextField.disableTextField(textField as? BaseTextField)
+            AppTextFieldHelper.disableTextField(textField as? BaseTextField)
         }
     }
 }

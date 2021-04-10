@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppTextField {
+class AppTextFieldHelper {
     static func passiveTextField(placeholder: String? = nil) -> BaseTextField {
         let textField = BaseTextField(placeholderText: placeholder,
                                       placeholderColor: UIColor.appShaft.withAlphaComponent(0.5),

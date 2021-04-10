@@ -32,7 +32,7 @@ public struct APIDataProvider: DataProviderProtocol {
         return request
     }
     
-    public func getData<T: RequestProtocol>(for request: T, result: DataProviderResult<T.ResponseType>?) {
+    public func fetchData<T: RequestProtocol>(for request: T, result: DataProviderResult<T.ResponseType>?) {
         let request = createRequest(request)
         var responseData: AFDataResponse<Data>?
         request.validate()

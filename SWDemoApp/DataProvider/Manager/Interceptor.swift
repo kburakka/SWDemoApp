@@ -10,7 +10,6 @@ import Alamofire
 
 protocol RequestHeaderStorage: AnyObject {
     var accessToken: String? { get }
-    var languageCode: String { get }
     
     func didGetUnauthorizedError()
 }
@@ -29,8 +28,6 @@ final class APIInterceptor: Alamofire.RequestInterceptor {
         if let token = self.storage.accessToken {
             urlRequest.setValue("Bearer " + token, forHTTPHeaderField: "Authorization")
         }
-        // Set Accept-Language header value using language code
-        urlRequest.setValue(storage.languageCode, forHTTPHeaderField: "Accept-Language")
         
         // Arrange Request logs for develope and staging environment
         #if !RELEASE

@@ -10,8 +10,7 @@ import Alamofire
 public typealias DataProviderResult<T: Decodable> = ((Result<T, ApiError>) -> Void)
 
 public protocol DataProviderProtocol {
-        
-    func getData<T: RequestProtocol>(for request: T,
+    func fetchData<T: RequestProtocol>(for request: T,
                                      result: DataProviderResult<T.ResponseType>?)
     
 }

@@ -18,8 +18,8 @@ public protocol RequestProtocol {
     var url: String { get }
 }
 
-extension RequestProtocol {
-    public var encoding: RequestEncoding {
+public extension RequestProtocol {
+    var encoding: RequestEncoding {
         switch method {
         case .get:
             return .url
@@ -29,8 +29,8 @@ extension RequestProtocol {
     }
 }
 
-extension RequestProtocol {
-    public var url: String {
+public extension RequestProtocol {
+    var url: String {
         return Constants.baseUrl + path
     }
 }

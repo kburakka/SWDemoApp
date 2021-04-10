@@ -10,6 +10,8 @@ import Foundation
 protocol CategoryDetailViewDataSource {
     var videos: [Video] { get }
     var category: Category? { get }
+    
+    func getVideos(completion:@escaping VoidClosure)
 }
 
 protocol CategoryDetailViewEventSource {
@@ -22,51 +24,27 @@ final class CategoryDetailViewModel: BaseViewModel<CategoryDetailRouter>, Catego
 
     var category: Category?
     
-    let videoUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-    let thumbUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
+    var videos: [Video] = []
     
-    lazy var videos = [Video(id: 1,
-                             categoryId: 1,
-                             date: "11/11/2022",
-                             brand: "Apple",
-                             title: "iPhone 11 Plus new cpu",
-                             thumb: thumbUrl,
-                             url: videoUrl),
-                       Video(id: 1,
-                             categoryId: 1,
-                             date: "11/11/2022",
-                             brand: "Apple",
-                             title: "iPhone 11 Plus new cpu",
-                             thumb: thumbUrl,
-                             url: videoUrl),
-                       Video(id: 1,
-                             categoryId: 1,
-                             date: "11/11/2022",
-                             brand: "Apple",
-                             title: "iPhone 11 Plus new cpu",
-                             thumb: thumbUrl,
-                             url: videoUrl),
-                       Video(id: 1,
-                             categoryId: 1,
-                             date: "11/11/2022",
-                             brand: "Apple",
-                             title: "iPhone 11 Plus new cpu",
-                             thumb: thumbUrl,
-                             url: videoUrl),
-                       Video(id: 1,
-                             categoryId: 1,
-                             date: "11/11/2022",
-                             brand: "Apple",
-                             title: "iPhone 11 Plus new cpu",
-                             thumb: thumbUrl,
-                             url: videoUrl),
-                       Video(id: 1,
-                             categoryId: 1,
-                             date: "11/11/2022",
-                             brand: "Apple",
-                             title: "iPhone 11 Plus new cpu",
-                             thumb: thumbUrl,
-                             url: videoUrl)]
+    func getVideos(completion: @escaping VoidClosure) {
+        if let id = category?.id {
+            let request = CategoryVideosRequest(id: id)
+            showLoadingView()
+            dataProvider.fetchData(for: request) { [weak self] (result) in
+                guard let self = self else { return }
+                self.hideLoadingView()
+                switch result {
+                case .success(let response):
+                    guard let data = response.data else { return }
+                    self.videos = data
+                    completion()
+                case .failure(let error):
+                    completion()
+                    print(error)
+                }
+            }
+        }
+    }
     
     func videoTapAction(video: Video?) {
         router.pushVideoDetail(category: category, video: video)

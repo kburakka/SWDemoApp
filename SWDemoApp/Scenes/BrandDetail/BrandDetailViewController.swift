@@ -37,6 +37,10 @@ final class BrandDetailViewController: BaseViewController<BrandDetailViewModel> 
         super.viewDidLoad()
         view.backgroundColor = .appWhite
         navigationItem.title = viewModel.video?.brand
+        viewModel.getCategories { [weak self] in
+            guard let self = self else { return }
+            self.tableView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

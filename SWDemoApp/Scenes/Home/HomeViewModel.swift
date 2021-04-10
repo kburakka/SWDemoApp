@@ -11,6 +11,9 @@ protocol HomeViewDataSource {
     var latestUploadModels: [LatestUploadCellModel] { get }
     var categories: [Category] { get }
     var selectedCategories: [Category] { get }
+    
+    func getLatestVideos(completion: @escaping (([Video]?) -> Void))
+    func getlatestUploadModels(completion: @escaping VoidClosure)
 }
 
 protocol HomeViewEventSource {
@@ -23,48 +26,7 @@ protocol HomeViewProtocol: HomeViewDataSource, HomeViewEventSource {}
 
 final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewProtocol {
     
-    private lazy var videos = [Video(id: 1,
-                                     categoryId: 1,
-                                     date: "11/11/2022",
-                                     brand: "Apple",
-                                     title: "iPhone 11 Plus new cpu",
-                                     thumb: thumbUrl,
-                                     url: videoUrl),
-                               Video(id: 1,
-                                     categoryId: 1,
-                                     date: "11/11/2022",
-                                     brand: "Apple",
-                                     title: "iPhone 11 Plus new cpu",
-                                     thumb: thumbUrl,
-                                     url: videoUrl),
-                               Video(id: 1,
-                                     categoryId: 1,
-                                     date: "11/11/2022",
-                                     brand: "Apple",
-                                     title: "iPhone 11 Plus new cpu",
-                                     thumb: thumbUrl,
-                                     url: videoUrl),
-                               Video(id: 1,
-                                     categoryId: 1,
-                                     date: "11/11/2022",
-                                     brand: "Apple",
-                                     title: "iPhone 11 Plus new cpu",
-                                     thumb: thumbUrl,
-                                     url: videoUrl),
-                               Video(id: 1,
-                                     categoryId: 1,
-                                     date: "11/11/2022",
-                                     brand: "Apple",
-                                     title: "iPhone 11 Plus new cpu",
-                                     thumb: thumbUrl,
-                                     url: videoUrl),
-                               Video(id: 1,
-                                     categoryId: 1,
-                                     date: "11/11/2022",
-                                     brand: "Apple",
-                                     title: "iPhone 11 Plus new cpu",
-                                     thumb: thumbUrl,
-                                     url: videoUrl)]
+    var videos: [Video] = []
     
     var categories: [Category] = []
     
@@ -78,17 +40,8 @@ final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewProtocol {
         }
         return categories
     }()
-
-    let videoUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-    let thumbUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
     
-    lazy var latestUploadModels: [LatestUploadCellModel] = {
-        var latestUploadModels: [LatestUploadCellModel] = []
-        for video in videos {
-            latestUploadModels.append(LatestUploadCellModel(video: video))
-        }
-        return latestUploadModels
-    }()
+    var latestUploadModels: [LatestUploadCellModel] = []
     
     func leftItemAction(from: UIViewController) {
         router.presentMenu(from: from)
@@ -101,6 +54,35 @@ final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewProtocol {
     func categoryDetailAction(id: String) {
         if let category = categories.first(where: { $0.id == id }) {
             router.pushCategoryDetail(category: category)
+        }
+    }
+    
+    func getLatestVideos(completion: @escaping (([Video]?) -> Void)) {
+        let request = LatestVideosRequest()
+        showLoadingView()
+        dataProvider.fetchData(for: request) { [weak self] (result) in
+            guard let self = self else { return }
+            self.hideLoadingView()
+            switch result {
+            case .success(let response):
+                guard let data = response.data else { return }
+                completion(data)
+            case .failure(let error):
+                completion(nil)
+                print(error)
+            }
+        }
+    }
+    
+    func getlatestUploadModels(completion: @escaping VoidClosure) {
+        getLatestVideos { (videos) in
+            self.videos = videos ?? []
+            var latestUploadModels: [LatestUploadCellModel] = []
+            for video in self.videos {
+                latestUploadModels.append(LatestUploadCellModel(video: video))
+            }
+            self.latestUploadModels = latestUploadModels
+            completion()
         }
     }
 }

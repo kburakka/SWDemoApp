@@ -15,6 +15,8 @@ protocol BrandDetailViewDataSource {
     var categoriesCellModel: BrandCategoryCellModel { get }
     var segmentedControlClosure: IntClosure? { get set }
     var segmentSelectedIndex: Int { get }
+    
+    func getCategories(completion: @escaping VoidClosure)
 }
 
 protocol BrandDetailViewEventSource {}
@@ -23,25 +25,6 @@ protocol BrandDetailViewProtocol: BrandDetailViewDataSource, BrandDetailViewEven
 
 final class BrandDetailViewModel: BaseViewModel<BrandDetailRouter>, BrandDetailViewProtocol {
     var categories: [Category] = []
-//        Category(id: 1,
-//                                           title: "Home furnishing",
-//                                           icon: .imgBedroom,
-//                                           iconWhite: .imgBedroomWhite,
-//                                           isSelected: false,
-//                                           videoCount: 7),
-//                                  Category(id: 2,
-//                                           title: "Smart home",
-//                                           icon: .imgXmlid,
-//                                           iconWhite: .imgBedroomWhite,
-//                                           isSelected: false,
-//                                           videoCount: 7),
-//                                  Category(id: 3,
-//                                           title: "Fashion",
-//                                           icon: .imgClothes,
-//                                           iconWhite: .imgClothesWhite,
-//                                           isSelected: false,
-//                                           videoCount: 7)]
-    // YOOOO
 
     
     var segmentSelectedIndex: Int = 0
@@ -64,5 +47,28 @@ final class BrandDetailViewModel: BaseViewModel<BrandDetailRouter>, BrandDetailV
     lazy var segmentCellModel = SegmentedControlCellModel(titles: ["Info", "Categories"], selectedIndex: segmentSelectedIndex)
     
     lazy var categoriesCellModel = BrandCategoryCellModel(categories: categories, title: "Our Categories")
+    
+    func getCategories(completion: @escaping VoidClosure) {
+        let request = CategoryRequest()
+        showLoadingView()
+        dataProvider.fetchData(for: request) { [weak self] (result) in
+            guard let self = self else { return }
+            self.hideLoadingView()
+            switch result {
+            case .success(let response):
+                guard let data = response.data else { return }
+                self.categories = data
+                for category in self.categories {
+                    category.isSelected = false
+                    category.iconWhite = CategoriesHelper.shared.getCategoryIcon(categoryType: CategoryType(rawValue: category.title) ?? .fashion, isWhite: true)
+                    category.icon = CategoriesHelper.shared.getCategoryIcon(categoryType: CategoryType(rawValue: category.title) ?? .fashion, isWhite: false)
+                }
+                completion()
+            case .failure(let error):
+                completion()
+                print(error)
+            }
+        }
+    }
     
 }

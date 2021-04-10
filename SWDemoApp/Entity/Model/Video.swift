@@ -7,22 +7,30 @@
 
 import Foundation
 
-class Video {
-    let id: Int
-    let categoryId: Int
+public struct Video: Decodable {
+    let id: String
+    let categoryID: String
     let date: String
     let brand: String
     var title: String
     let thumb: String
     var url: String
     
-    init(id: Int, categoryId: Int, date: String, brand: String, title: String, thumb: String, url: String) {
+    init(id: String, categoryId: String, date: String, brand: String, title: String, thumb: String, url: String) {
         self.id = id
-        self.categoryId = categoryId
+        self.categoryID = categoryId
         self.date = date
         self.brand = brand
         self.title = title
         self.thumb = thumb
         self.url = url
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case categoryID = "categoryId"
+        case date, brand, title
+        case thumb = "Thumb"
+        case url
     }
 }

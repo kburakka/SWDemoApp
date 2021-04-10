@@ -30,6 +30,9 @@ final class CategoryDetailViewController: BaseViewController<CategoryDetailViewM
         super.viewDidLoad()
         view.backgroundColor = .appWhite
         navigationItem.title = viewModel.category?.title
+        viewModel.getVideos { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

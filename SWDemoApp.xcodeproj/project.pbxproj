@@ -145,7 +145,6 @@
 		B3A8BBE92620E8BC000568C8 /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BBE82620E8BC000568C8 /* ErrorCode.swift */; };
 		B3A8BBEF2620EBA1000568C8 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BBEE2620EBA1000568C8 /* ContentType.swift */; };
 		B3A8BBF72620EBC1000568C8 /* HTTPHeaderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BBF62620EBC1000568C8 /* HTTPHeaderField.swift */; };
-		B3A8BC052620ECE2000568C8 /* TestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BC042620ECE2000568C8 /* TestRequest.swift */; };
 		B3A8BC102621AA3C000568C8 /* InterceptorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BC0F2621AA3C000568C8 /* InterceptorInterface.swift */; };
 		B3A8BC182621AA51000568C8 /* ApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BC172621AA51000568C8 /* ApiProvider.swift */; };
 		B3A8BC332621BB4F000568C8 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BC322621BB4F000568C8 /* UserDefaultsHelper.swift */; };
@@ -157,6 +156,8 @@
 		B3A8BC5126221B3E000568C8 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BC5026221B3E000568C8 /* Register.swift */; };
 		B3A8BC5626221BA4000568C8 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BC5526221BA4000568C8 /* RegisterRequest.swift */; };
 		B3A8BC5B26222F71000568C8 /* CategoriesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BC5A26222F71000568C8 /* CategoriesHelper.swift */; };
+		B3A8BC63262247F9000568C8 /* LatestVideosRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BC62262247F9000568C8 /* LatestVideosRequest.swift */; };
+		B3A8BC6826224E71000568C8 /* CategoryVideosRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BC6726224E71000568C8 /* CategoryVideosRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -322,7 +323,6 @@
 		B3A8BBE82620E8BC000568C8 /* ErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCode.swift; sourceTree = "<group>"; };
 		B3A8BBEE2620EBA1000568C8 /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
 		B3A8BBF62620EBC1000568C8 /* HTTPHeaderField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderField.swift; sourceTree = "<group>"; };
-		B3A8BC042620ECE2000568C8 /* TestRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRequest.swift; sourceTree = "<group>"; };
 		B3A8BC0F2621AA3C000568C8 /* InterceptorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterceptorInterface.swift; sourceTree = "<group>"; };
 		B3A8BC172621AA51000568C8 /* ApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProvider.swift; sourceTree = "<group>"; };
 		B3A8BC322621BB4F000568C8 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
@@ -334,6 +334,8 @@
 		B3A8BC5026221B3E000568C8 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		B3A8BC5526221BA4000568C8 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		B3A8BC5A26222F71000568C8 /* CategoriesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesHelper.swift; sourceTree = "<group>"; };
+		B3A8BC62262247F9000568C8 /* LatestVideosRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestVideosRequest.swift; sourceTree = "<group>"; };
+		B3A8BC6726224E71000568C8 /* CategoryVideosRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVideosRequest.swift; sourceTree = "<group>"; };
 		E294079B99E6FC024C8BA5E9 /* Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SWDemoApp-SWDemoAppUITests/Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7AE278F77EEBE64FAE1B4EE /* Pods_SWDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81DE28F58DD1078EE47A918 /* Pods_SWDemoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWDemoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -954,10 +956,11 @@
 		B3A8BC032620ECA3000568C8 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				B3A8BC042620ECE2000568C8 /* TestRequest.swift */,
 				B3A8BC372622073B000568C8 /* CategoryRequest.swift */,
 				B3A8BC4B2622184C000568C8 /* LoginRequest.swift */,
 				B3A8BC5526221BA4000568C8 /* RegisterRequest.swift */,
+				B3A8BC62262247F9000568C8 /* LatestVideosRequest.swift */,
+				B3A8BC6726224E71000568C8 /* CategoryVideosRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1330,7 +1333,6 @@
 				B308E85B261BAE7800E45656 /* RegisterRouter.swift in Sources */,
 				B308E924261CE53100E45656 /* CategoryHeaderCellModel.swift in Sources */,
 				B308E779261B25EB00E45656 /* AppRouter.swift in Sources */,
-				B3A8BC052620ECE2000568C8 /* TestRequest.swift in Sources */,
 				B3A8BBE92620E8BC000568C8 /* ErrorCode.swift in Sources */,
 				B308E7DE261B315B00E45656 /* Assets.swift in Sources */,
 				B308E9B5261E01F600E45656 /* CategoriesBrandViewController.swift in Sources */,
@@ -1338,6 +1340,7 @@
 				B3A8BBB52620E432000568C8 /* ApiError.swift in Sources */,
 				B308E9D7261E29FA00E45656 /* CategoryDetailViewModel.swift in Sources */,
 				B308E865261BAE9000E45656 /* RegisterRoute.swift in Sources */,
+				B3A8BC63262247F9000568C8 /* LatestVideosRequest.swift in Sources */,
 				B308E98C261DC22000E45656 /* UISearchBar+Extension.swift in Sources */,
 				B308E923261CE53100E45656 /* CategoryHeaderCell.swift in Sources */,
 				B308E7DF261B315B00E45656 /* UIColor+Colors.swift in Sources */,
@@ -1417,6 +1420,7 @@
 				B3A8BBD52620E7D2000568C8 /* RequestAdepter.swift in Sources */,
 				B308E844261B965400E45656 /* BaseButton.swift in Sources */,
 				B308E8FF261CC35E00E45656 /* CategoriesRoute.swift in Sources */,
+				B3A8BC6826224E71000568C8 /* CategoryVideosRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -101,6 +101,10 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         super.viewDidLoad()
         setupNavItems()
         setCategories()
+        viewModel.getlatestUploadModels { [weak self] in
+            guard let self = self else { return }
+            self.collectionView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

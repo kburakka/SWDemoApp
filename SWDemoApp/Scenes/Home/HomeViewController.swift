@@ -215,7 +215,7 @@ extension HomeViewController {
     }
     
     func handleCategoryTap(_ sender: UITapGestureRecognizer? = nil) {
-        if let tag = sender?.view?.tag {
+        if let tag = sender?.view?.accessibilityLabel {
             viewModel.categoryDetailAction(id: tag)
         }
     }
@@ -274,10 +274,10 @@ private extension HomeViewController {
     func setCategories() {
         var categoryCards: [HomeCategoryCard] = []
         
-        for category in viewModel.categories.filter({ $0.isSelected == true }) {
+        for category in viewModel.selectedCategories {
             let categoryCard = HomeCategoryCard(viewModel: category)
             categoryCard.height(52)
-            categoryCard.tag = category.id
+            categoryCard.accessibilityLabel = category.id
             let tap = UITapGestureRecognizer(target: self, action: #selector(handleCategoryTap(_:)))
             categoryCard.addGestureRecognizer(tap)
             categoryCards.append(categoryCard)

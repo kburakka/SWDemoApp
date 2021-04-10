@@ -6,11 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 protocol CategoriesViewDataSource {
     var categories: [Category] { get }
     var categoryHeaderModel: CategoryHeaderCellModel { get }
     var categoryCellModels: [CategoryCellModel] { get }
+    
+    func getCategories(completion: @escaping (([Category]?) -> Void))
+    func getCategoryCellModels(completion:@escaping (([CategoryCellModel]) -> Void))
 }
 
 protocol CategoriesViewEventSource {
@@ -21,67 +25,58 @@ protocol CategoriesViewEventSource {
 protocol CategoriesViewProtocol: CategoriesViewDataSource, CategoriesViewEventSource {}
 
 final class CategoriesViewModel: BaseViewModel<CategoriesRouter>, CategoriesViewProtocol {
-    
-    lazy var categoryCellModels: [CategoryCellModel] = {
-        var categoryCellModels: [CategoryCellModel] = []
-        for category in categories {
-            categoryCellModels.append(CategoryCellModel(category: category))
-        }
-        return categoryCellModels
-    }()
 
-    var categories: [Category] = [Category(id: 1,
-                                           title: "Home furnishing",
-                                           icon: .imgBedroom,
-                                           iconWhite: .imgBedroomWhite,
-                                           isSelected: false,
-                                           videoCount: 7),
-                                  Category(id: 2,
-                                           title: "Smart home",
-                                           icon: .imgXmlid,
-                                           iconWhite: .imgBedroomWhite,
-                                           isSelected: false,
-                                           videoCount: 7),
-                                  Category(id: 3,
-                                           title: "Fashion",
-                                           icon: .imgClothes,
-                                           iconWhite: .imgClothesWhite,
-                                           isSelected: false,
-                                           videoCount: 7),
-                                  Category(id: 4,
-                                           title: "Electric appliances",
-                                           icon: .imgElectrical,
-                                           iconWhite: .imgElectricalWhite,
-                                           isSelected: false,
-                                           videoCount: 7),
-                                  Category(id: 5,
-                                           title: "Electronics",
-                                           icon: .imgDevices,
-                                           iconWhite: .imgDevicesWhite,
-                                           isSelected: false,
-                                           videoCount: 7),
-                                  Category(id: 6,
-                                           title: "Gadgets",
-                                           icon: .imgGadget,
-                                           iconWhite: .imgGadgetWhite,
-                                           isSelected: false,
-                                           videoCount: 7),
-                                  Category(id: 7,
-                                           title: "Medical equipment",
-                                           icon: .imgFirstaid,
-                                           iconWhite: .imgFirstaidWhite,
-                                           isSelected: false,
-                                           videoCount: 7)]
+    var categories: [Category] = []
+
+    var categoryCellModels: [CategoryCellModel] = []
     
     var categoryHeaderModel = CategoryHeaderCellModel(title: "Hello, Alex!\nWhich are your favorite categories?")
     
     func didSelectItemAt(index: Int) {
-        categoryCellModels[index].category.isSelected.toggle()
-        categories.first(where: { $0.id == categoryCellModels[index].category.id })?.isSelected.toggle()
+        categoryCellModels[index].category.isSelected?.toggle()
+        categories.first(where: { $0.id == categoryCellModels[index].category.id })?.isSelected?.toggle()
         categoryCellModels[index].tapButtonAction()
     }
     
     func comfirmButtonAction() {
+        let selectedIds = categories.filter({ $0.isSelected == true }).map({ $0.id })
+        UserDefaultsHelper.setData(value: selectedIds, key: .selectedCategories)
         router.pushHome(categories: categories)
+    }
+    
+    func getCategoryCellModels(completion: @escaping (([CategoryCellModel]) -> Void)) {
+        getCategories { (categories) in
+            var categoryCellModels: [CategoryCellModel] = []
+            if let categories = categories {
+                for category in categories {
+                    categoryCellModels.append(CategoryCellModel(category: category))
+                }
+            }
+            self.categoryCellModels = categoryCellModels
+            completion(categoryCellModels)
+        }
+    }
+    
+    func getCategories(completion: @escaping (([Category]?) -> Void)) {
+        let request = CategoryRequest()
+        showLoadingView()
+        dataProvider.fetchData(for: request) { [weak self] (result) in
+            guard let self = self else { return }
+            self.hideLoadingView()
+            switch result {
+            case .success(let response):
+                guard let data = response.data else { return }
+                self.categories = data
+                for category in self.categories {
+                    category.isSelected = false
+                    category.iconWhite = CategoriesHelper.shared.getCategoryIcon(categoryType: CategoryType(rawValue: category.title) ?? .fashion, isWhite: true)
+                    category.icon = CategoriesHelper.shared.getCategoryIcon(categoryType: CategoryType(rawValue: category.title) ?? .fashion, isWhite: false)
+                }
+                completion(self.categories)
+            case .failure(let error):
+                completion(nil)
+                print(error)
+            }
+        }
     }
 }

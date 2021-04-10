@@ -113,7 +113,7 @@ private extension CategoriesBrandViewController {
     }
     
     func handleCategoryTap(_ sender: UITapGestureRecognizer? = nil) {
-        if let tag = sender?.view?.tag {
+        if let tag = sender?.view?.accessibilityLabel {
             viewModel.categoryDetailAction(id: tag)
         }
     }
@@ -131,7 +131,7 @@ private extension CategoriesBrandViewController {
             let categoryModel = viewModel.categories[index]
                  let categoryCard = CategoriesBrandCard(viewModel: categoryModel)
                 categoryCard.height(52)
-                categoryCard.tag = categoryModel.id
+                categoryCard.accessibilityLabel = categoryModel.id
                 let tap = UITapGestureRecognizer(target: self, action: #selector(handleCategoryTap(_:)))
                 categoryCard.addGestureRecognizer(tap)
                 categoryCards.append(categoryCard)

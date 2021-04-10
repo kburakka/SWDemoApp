@@ -10,17 +10,19 @@ import UIKit
 protocol HomeViewDataSource {
     var latestUploadModels: [LatestUploadCellModel] { get }
     var categories: [Category] { get }
+    var selectedCategories: [Category] { get }
 }
 
 protocol HomeViewEventSource {
     func leftItemAction(from: UIViewController)
     func showMoreAction()
-    func categoryDetailAction(id: Int)
+    func categoryDetailAction(id: String)
 }
 
 protocol HomeViewProtocol: HomeViewDataSource, HomeViewEventSource {}
 
 final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewProtocol {
+    
     private lazy var videos = [Video(id: 1,
                                      categoryId: 1,
                                      date: "11/11/2022",
@@ -66,6 +68,17 @@ final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewProtocol {
     
     var categories: [Category] = []
     
+    lazy var selectedCategories: [Category] = {
+        var categories: [Category] = []
+        let categoriIds = UserDefaultsHelper.getData(type: [String].self, forKey: .selectedCategories) ?? []
+        for id in categoriIds {
+            if let category = self.categories.first(where: { $0.id == id }) {
+                categories.append(category)
+            }
+        }
+        return categories
+    }()
+
     let videoUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
     let thumbUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
     
@@ -85,7 +98,7 @@ final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewProtocol {
         router.pushCategoriesBrand(categories: categories)
     }
     
-    func categoryDetailAction(id: Int) {
+    func categoryDetailAction(id: String) {
         if let category = categories.first(where: { $0.id == id }) {
             router.pushCategoryDetail(category: category)
         }

@@ -11,8 +11,11 @@ class GenderView: UIView {
 
     private let containerView = UIView(backgroundColor: .clear)
     
+    var genderChange: VoidClosure?
+
     var selectedGender: Gender = .none {
         didSet {
+            genderChange?()
             updateButtons()
         }
     }

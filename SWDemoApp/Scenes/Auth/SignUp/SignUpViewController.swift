@@ -34,7 +34,15 @@ final class SignUpViewController: BaseViewController<SignUpViewModel> {
         return label
     }()
     
-    private let genderView = GenderView()
+    var selectedGender: Gender = .none
+    
+    private var genderView: GenderView {
+        let genderView = GenderView()
+        genderView.genderChange = {
+            self.selectedGender = genderView.selectedGender
+        }
+        return genderView
+    }
     
     private lazy var personalDetailsStackView: UIStackView = {
         return UIStackView(arrangedSubviews: [personalDetailTitleLabel,
@@ -298,6 +306,33 @@ extension SignUpViewController {
     }
     
     func continueAction() {
-        viewModel.continueButtonAction()
+        if let email = emailTextField.text, !email.isEmpty,
+           let password = passwordTextField.text, !password.isEmpty,
+           let repassword = repasswordTextField.text, !password.isEmpty,
+           let name = nameTextField.text, !name.isEmpty,
+           let surname = surnameTextField.text, !surname.isEmpty,
+           let age = ageTextField.text, !age.isEmpty,
+           let phone = phoneNumberTextField.text, !phone.isEmpty {
+            let ageInt = Int(age) ?? 0
+            if password == repassword {
+                if selectedGender != .none {
+                    let register = Register(email: email,
+                                            password: password,
+                                            name: name,
+                                            surname: surname,
+                                            age: ageInt,
+                                            phone: phone,
+                                            sex: selectedGender.rawValue)
+                    viewModel.continueButtonAction(register: register)
+                } else {
+                    showAlert(title: "Warning", message: "Please select gender.")
+                }
+            } else {
+                showAlert(title: "Warning", message: "Your passwords does not match!")
+            }
+        } else {
+            showAlert(title: "Warning", message: "Please fill all fields.")
+        }
+
     }
 }

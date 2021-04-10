@@ -28,7 +28,7 @@ final class CategoryCellModel: CategoryCellProtocol {
     }
     
     func tapButtonAction() {
-        category.isSelected.toggle()
+        category.isSelected?.toggle()
         tapClosure?()
     }
 }

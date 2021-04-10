@@ -38,6 +38,9 @@ final class CategoriesViewController: BaseViewController<CategoriesViewModel> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.getCategoryCellModels { [weak self] _ in
+            self?.collectionView.reloadData()
+        }
     }
     
     override func viewDidLayoutSubviews() {

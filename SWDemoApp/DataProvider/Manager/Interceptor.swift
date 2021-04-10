@@ -21,14 +21,14 @@ final class APIInterceptor: Alamofire.RequestInterceptor {
     internal init(storage: RequestHeaderStorage) {
         self.storage = storage
     }
+    // swiftlint:disable all
 
     // MARK: - Request Interceptor Method
     internal func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
         var urlRequest = urlRequest
         if let token = self.storage.accessToken {
-            urlRequest.setValue("Bearer " + token, forHTTPHeaderField: "Authorization")
+            urlRequest.setValue(token, forHTTPHeaderField: "token")
         }
-        
         // Arrange Request logs for develope and staging environment
         #if !RELEASE
         print("-------------------Request-------------------------")
@@ -48,7 +48,8 @@ final class APIInterceptor: Alamofire.RequestInterceptor {
         #endif
         completion(.success(urlRequest))
     }
-    
+    // swiftlint:enable all
+
     // MARK: - Error Retry Method
     internal func retry(_ request: Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
         // Arrange Error logs for develope and staging environment

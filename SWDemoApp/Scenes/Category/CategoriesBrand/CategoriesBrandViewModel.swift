@@ -13,7 +13,7 @@ protocol CategoriesBrandViewDataSource {
 
 protocol CategoriesBrandViewEventSource {
     func backButtonAction()
-    func categoryDetailAction(id: Int)
+    func categoryDetailAction(id: String)
 }
 
 protocol CategoriesBrandViewProtocol: CategoriesBrandViewDataSource, CategoriesBrandViewEventSource {}
@@ -26,7 +26,7 @@ final class CategoriesBrandViewModel: BaseViewModel<CategoriesBrandRouter>, Cate
         router.close()
     }
     
-    func categoryDetailAction(id: Int) {
+    func categoryDetailAction(id: String) {
         if let category = categories.first(where: { $0.id == id }) {
             router.pushCategoryDetail(category: category)
         }

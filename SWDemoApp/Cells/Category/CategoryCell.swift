@@ -56,7 +56,7 @@ class CategoryCell: UICollectionViewCell, ReusableView {
         appIconImageView.image = viewModel.category.icon
         titleLabel.text = viewModel.category.title
         viewModel.tapClosure = {
-            if viewModel.category.isSelected {
+            if viewModel.category.isSelected ?? false {
                 self.containerView.layer.borderWidth = 3
                 self.containerView.layer.borderColor = UIColor.appCyan.cgColor
             } else {

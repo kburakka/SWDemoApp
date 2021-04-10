@@ -9,6 +9,7 @@ import Foundation
 
 enum UserDefaultKeys: String, CaseIterable {
     case token
+    case selectedCategories
 }
 
 final class UserDefaultsHelper {

@@ -22,24 +22,27 @@ protocol BrandDetailViewEventSource {}
 protocol BrandDetailViewProtocol: BrandDetailViewDataSource, BrandDetailViewEventSource {}
 
 final class BrandDetailViewModel: BaseViewModel<BrandDetailRouter>, BrandDetailViewProtocol {
-    var categories: [Category] = [Category(id: 1,
-                                           title: "Home furnishing",
-                                           icon: .imgBedroom,
-                                           iconWhite: .imgBedroomWhite,
-                                           isSelected: false,
-                                           videoCount: 7),
-                                  Category(id: 2,
-                                           title: "Smart home",
-                                           icon: .imgXmlid,
-                                           iconWhite: .imgBedroomWhite,
-                                           isSelected: false,
-                                           videoCount: 7),
-                                  Category(id: 3,
-                                           title: "Fashion",
-                                           icon: .imgClothes,
-                                           iconWhite: .imgClothesWhite,
-                                           isSelected: false,
-                                           videoCount: 7)]
+    var categories: [Category] = []
+//        Category(id: 1,
+//                                           title: "Home furnishing",
+//                                           icon: .imgBedroom,
+//                                           iconWhite: .imgBedroomWhite,
+//                                           isSelected: false,
+//                                           videoCount: 7),
+//                                  Category(id: 2,
+//                                           title: "Smart home",
+//                                           icon: .imgXmlid,
+//                                           iconWhite: .imgBedroomWhite,
+//                                           isSelected: false,
+//                                           videoCount: 7),
+//                                  Category(id: 3,
+//                                           title: "Fashion",
+//                                           icon: .imgClothes,
+//                                           iconWhite: .imgClothesWhite,
+//                                           isSelected: false,
+//                                           videoCount: 7)]
+    // YOOOO
+
     
     var segmentSelectedIndex: Int = 0
     

@@ -8,5 +8,5 @@
 import Foundation
 
 class Constants {
-    static let baseUrl = "https://jsonplaceholder.typicode.com/todos/1"
+    static let baseUrl = "http://localhost:5000/"
 }

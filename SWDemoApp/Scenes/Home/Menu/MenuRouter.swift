@@ -5,4 +5,6 @@
 //  Created by Burak Kaya on 7.04.2021.
 //
 
-final class MenuRouter: Router {}
+final class MenuRouter: Router, MenuRouter.Routes {
+    typealias Routes = LoginRoute
+}

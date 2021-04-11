@@ -6,5 +6,5 @@
 //
 
 final class CategoriesRouter: Router, CategoriesRouter.Routes {
-    typealias Routes = HomeRoute
+    typealias Routes = HomeRoute & AlertRoute
 }

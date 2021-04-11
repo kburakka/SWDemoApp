@@ -158,6 +158,10 @@
 		B3A8BC5B26222F71000568C8 /* CategoriesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BC5A26222F71000568C8 /* CategoriesHelper.swift */; };
 		B3A8BC63262247F9000568C8 /* LatestVideosRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BC62262247F9000568C8 /* LatestVideosRequest.swift */; };
 		B3A8BC6826224E71000568C8 /* CategoryVideosRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BC6726224E71000568C8 /* CategoryVideosRequest.swift */; };
+		B3A8BC702622EE63000568C8 /* AlertRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BC6D2622EE63000568C8 /* AlertRouter.swift */; };
+		B3A8BC712622EE63000568C8 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BC6E2622EE63000568C8 /* AlertViewController.swift */; };
+		B3A8BC722622EE63000568C8 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BC6F2622EE63000568C8 /* AlertViewModel.swift */; };
+		B3A8BC7A2622EE71000568C8 /* AlertRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8BC792622EE71000568C8 /* AlertRoute.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -336,6 +340,10 @@
 		B3A8BC5A26222F71000568C8 /* CategoriesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesHelper.swift; sourceTree = "<group>"; };
 		B3A8BC62262247F9000568C8 /* LatestVideosRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestVideosRequest.swift; sourceTree = "<group>"; };
 		B3A8BC6726224E71000568C8 /* CategoryVideosRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVideosRequest.swift; sourceTree = "<group>"; };
+		B3A8BC6D2622EE63000568C8 /* AlertRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertRouter.swift; sourceTree = "<group>"; };
+		B3A8BC6E2622EE63000568C8 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		B3A8BC6F2622EE63000568C8 /* AlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
+		B3A8BC792622EE71000568C8 /* AlertRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertRoute.swift; sourceTree = "<group>"; };
 		E294079B99E6FC024C8BA5E9 /* Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SWDemoApp-SWDemoAppUITests/Pods-SWDemoApp-SWDemoAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7AE278F77EEBE64FAE1B4EE /* Pods_SWDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81DE28F58DD1078EE47A918 /* Pods_SWDemoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWDemoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -574,6 +582,7 @@
 		B308E839261B812400E45656 /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
+				B3A8BC6C2622EDD1000568C8 /* Alert */,
 				B308E87D261C5E9B00E45656 /* Base */,
 				B308E87E261C5ECD00E45656 /* RegisterTopCard.swift */,
 				B308E8DE261CB04700E45656 /* CheckBox.swift */,
@@ -987,6 +996,17 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		B3A8BC6C2622EDD1000568C8 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				B3A8BC6D2622EE63000568C8 /* AlertRouter.swift */,
+				B3A8BC6E2622EE63000568C8 /* AlertViewController.swift */,
+				B3A8BC6F2622EE63000568C8 /* AlertViewModel.swift */,
+				B3A8BC792622EE71000568C8 /* AlertRoute.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		FED235B10BBC69F124A04BBF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1308,6 +1328,7 @@
 				B308EA63261F241F00E45656 /* BrandDetailViewController.swift in Sources */,
 				B308E92F261CF85400E45656 /* HomeRouter.swift in Sources */,
 				B308E95D261D8C3700E45656 /* MenuRouter.swift in Sources */,
+				B3A8BC702622EE63000568C8 /* AlertRouter.swift in Sources */,
 				B308E9C4261E05AE00E45656 /* Category.swift in Sources */,
 				B3A8BB21261F30EB000568C8 /* ContactInfoCell.swift in Sources */,
 				B308E7F2261B35F400E45656 /* Gradient.swift in Sources */,
@@ -1325,6 +1346,7 @@
 				B3A8BC5126221B3E000568C8 /* Register.swift in Sources */,
 				B3A8BC3D262207B8000568C8 /* BaseResponse.swift in Sources */,
 				B308E96C261D8DED00E45656 /* MenuRoute.swift in Sources */,
+				B3A8BC712622EE63000568C8 /* AlertViewController.swift in Sources */,
 				B3A8BB47261F6FDA000568C8 /* BrandCategoryCellModel.swift in Sources */,
 				B308E971261D909400E45656 /* UITableView+Extension.swift in Sources */,
 				B308E9EB261E37AC00E45656 /* DetailHeaderCell.swift in Sources */,
@@ -1339,6 +1361,7 @@
 				B308EA31261EFAE600E45656 /* ClickToCell.swift in Sources */,
 				B3A8BBB52620E432000568C8 /* ApiError.swift in Sources */,
 				B308E9D7261E29FA00E45656 /* CategoryDetailViewModel.swift in Sources */,
+				B3A8BC7A2622EE71000568C8 /* AlertRoute.swift in Sources */,
 				B308E865261BAE9000E45656 /* RegisterRoute.swift in Sources */,
 				B3A8BC63262247F9000568C8 /* LatestVideosRequest.swift in Sources */,
 				B308E98C261DC22000E45656 /* UISearchBar+Extension.swift in Sources */,
@@ -1374,6 +1397,7 @@
 				B3A8BB46261F6FDA000568C8 /* BrandCategoryCell.swift in Sources */,
 				B3A8BC182621AA51000568C8 /* ApiProvider.swift in Sources */,
 				B308EA3A261F003800E45656 /* ClickCard.swift in Sources */,
+				B3A8BC722622EE63000568C8 /* AlertViewModel.swift in Sources */,
 				B308E908261CC49200E45656 /* CategoryCellModel.swift in Sources */,
 				B3A8BB6226208606000568C8 /* GenderView.swift in Sources */,
 				B308E88B261C7BCA00E45656 /* SignUpViewController.swift in Sources */,

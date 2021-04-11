@@ -6,5 +6,5 @@
 //
 
 final class CategoryDetailRouter: Router, CategoryDetailRouter.Routes {
-    typealias Routes = VideoDetailRoute
+    typealias Routes = VideoDetailRoute & AlertRoute
 }

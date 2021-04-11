@@ -65,7 +65,10 @@ final class CategoriesViewModel: BaseViewModel<CategoriesRouter>, CategoriesView
             self.hideLoadingView()
             switch result {
             case .success(let response):
-                guard let data = response.data else { return }
+                guard let data = response.data else {
+                    self.router.presentAlert(title: "Some thing went wrong!", buttonTitle: "Close")
+                    return
+                }
                 self.categories = data
                 for category in self.categories {
                     category.isSelected = false
@@ -74,8 +77,7 @@ final class CategoriesViewModel: BaseViewModel<CategoriesRouter>, CategoriesView
                 }
                 completion(self.categories)
             case .failure(let error):
-                completion(nil)
-                print(error)
+                self.router.presentAlert(title: error.message ?? "Some thing went wrong!", buttonTitle: "Close")
             }
         }
     }

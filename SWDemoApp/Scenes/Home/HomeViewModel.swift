@@ -65,11 +65,13 @@ final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewProtocol {
             self.hideLoadingView()
             switch result {
             case .success(let response):
-                guard let data = response.data else { return }
+                guard let data = response.data else {
+                    self.router.presentAlert(title: "Some thing went wrong!", buttonTitle: "Close")
+                    return
+                }
                 completion(data)
             case .failure(let error):
-                completion(nil)
-                print(error)
+                self.router.presentAlert(title: error.message ?? "Some thing went wrong!", buttonTitle: "Close")
             }
         }
     }

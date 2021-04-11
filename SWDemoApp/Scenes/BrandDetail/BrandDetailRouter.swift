@@ -5,4 +5,6 @@
 //  Created by Burak Kaya on 8.04.2021.
 //
 
-final class BrandDetailRouter: Router {}
+final class BrandDetailRouter: Router, BrandDetailRouter.Routes {
+    typealias Routes = AlertRoute
+}

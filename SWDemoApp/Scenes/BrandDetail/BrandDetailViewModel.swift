@@ -56,7 +56,10 @@ final class BrandDetailViewModel: BaseViewModel<BrandDetailRouter>, BrandDetailV
             self.hideLoadingView()
             switch result {
             case .success(let response):
-                guard let data = response.data else { return }
+                guard let data = response.data else {
+                    self.router.presentAlert(title: "Some thing went wrong!", buttonTitle: "Close")
+                    return
+                }
                 self.categories = data
                 for category in self.categories {
                     category.isSelected = false
@@ -65,8 +68,7 @@ final class BrandDetailViewModel: BaseViewModel<BrandDetailRouter>, BrandDetailV
                 }
                 completion()
             case .failure(let error):
-                completion()
-                print(error)
+                self.router.presentAlert(title: error.message ?? "Some thing went wrong!", buttonTitle: "Close")
             }
         }
     }

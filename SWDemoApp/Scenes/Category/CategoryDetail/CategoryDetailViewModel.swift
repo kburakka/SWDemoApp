@@ -35,12 +35,14 @@ final class CategoryDetailViewModel: BaseViewModel<CategoryDetailRouter>, Catego
                 self.hideLoadingView()
                 switch result {
                 case .success(let response):
-                    guard let data = response.data else { return }
+                    guard let data = response.data else {
+                        self.router.presentAlert(title: "Some thing went wrong!", buttonTitle: "Close")
+                        return
+                    }
                     self.videos = data
                     completion()
                 case .failure(let error):
-                    completion()
-                    print(error)
+                    self.router.presentAlert(title: error.message ?? "Some thing went wrong!", buttonTitle: "Close")
                 }
             }
         }

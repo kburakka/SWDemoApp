@@ -6,5 +6,5 @@
 //
 
 final class SignUpRouter: Router, SignUpRouter.Routes {
-    typealias Routes = CategoriesRoute
+    typealias Routes = CategoriesRoute & AlertRoute
 }

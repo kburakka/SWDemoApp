@@ -27,13 +27,16 @@ final class LoginViewModel: BaseViewModel<LoginRouter>, LoginViewProtocol {
             self.hideLoadingView()
             switch result {
             case .success(let response):
-                guard let data = response.data else { return }
+                guard let data = response.data else {
+                    self.router.presentAlert(title: "Some thing went wrong!", buttonTitle: "Close")
+                    return
+                }
                 UserDefaultsHelper.setData(value: data, key: .token)
                 self.getCategories { (categories) in
                     self.router.pushHome(categories: categories ?? [])
                 }
             case .failure(let error):
-                print(error)
+                self.router.presentAlert(title: error.message ?? "Some thing went wrong!", buttonTitle: "Close")
             }
         }
     }
@@ -54,7 +57,10 @@ final class LoginViewModel: BaseViewModel<LoginRouter>, LoginViewProtocol {
             self.hideLoadingView()
             switch result {
             case .success(let response):
-                guard let data = response.data else { return }
+                guard let data = response.data else {
+                    self.router.presentAlert(title: "Some thing went wrong!", buttonTitle: "Close")
+                    return
+                }
                 let categories: [Category] = data
                 for category in categories {
                     category.isSelected = false
@@ -63,8 +69,7 @@ final class LoginViewModel: BaseViewModel<LoginRouter>, LoginViewProtocol {
                 }
                 completion(data)
             case .failure(let error):
-                completion(nil)
-                print(error)
+                self.router.presentAlert(title: error.message ?? "Some thing went wrong!", buttonTitle: "Close")
             }
         }
     }

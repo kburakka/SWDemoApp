@@ -17,6 +17,7 @@ final class MenuViewController: BaseViewController<MenuViewModel> {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
+        tableView.alwaysBounceVertical = false
         return tableView
     }()
     
@@ -46,6 +47,9 @@ final class MenuViewController: BaseViewController<MenuViewModel> {
         button.backgroundColor = UIColor.appShaft.withAlphaComponent(0.5)
         button.contentHorizontalAlignment = .left
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 0)
+        button.addTarget(self,
+                         action: #selector(logoutAction),
+                         for: .touchUpInside)
         return button
     }()
     
@@ -119,5 +123,9 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
 extension MenuViewController {
     func closeAction() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func logoutAction() {
+        viewModel.logoutAction()
     }
 }

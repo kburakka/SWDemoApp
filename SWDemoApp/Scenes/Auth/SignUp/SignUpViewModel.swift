@@ -24,11 +24,14 @@ final class SignUpViewModel: BaseViewModel<SignUpRouter>, SignUpViewProtocol {
             self.hideLoadingView()
             switch result {
             case .success(let response):
-                guard let data = response.data else { return }
+                guard let data = response.data else {
+                    self.router.presentAlert(title: "Some thing went wrong!", buttonTitle: "Close")
+                    return
+                }
                 UserDefaultsHelper.setData(value: data, key: .token)
                 self.router.pushCategories()
             case .failure(let error):
-                print(error)
+                self.router.presentAlert(title: error.message ?? "Some thing went wrong!", buttonTitle: "Close")
             }
         }
     }

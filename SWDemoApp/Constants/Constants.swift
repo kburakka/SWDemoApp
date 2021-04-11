@@ -8,5 +8,5 @@
 import Foundation
 
 class Constants {
-    static let baseUrl = "http://localhost:5000/"
+    static let baseUrl = "https://swdemoapp.herokuapp.com/"
 }

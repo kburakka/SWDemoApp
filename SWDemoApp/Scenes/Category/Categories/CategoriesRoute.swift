@@ -6,14 +6,15 @@
 //
 
 protocol CategoriesRoute {
-    func pushCategories()
+    func pushCategories(name: String)
 }
 
 extension CategoriesRoute where Self: RouterProtocol {
     
-    func pushCategories() {
+    func pushCategories(name: String) {
         let router = CategoriesRouter()
         let viewModel = CategoriesViewModel(router: router)
+        viewModel.name = name
         let viewController = CategoriesViewController(viewModel: viewModel)
         
         let transition = PushTransition()

@@ -29,7 +29,7 @@ final class SignUpViewModel: BaseViewModel<SignUpRouter>, SignUpViewProtocol {
                     return
                 }
                 UserDefaultsHelper.setData(value: data, key: .token)
-                self.router.pushCategories()
+                self.router.pushCategories(name: register.name)
             case .failure(let error):
                 self.router.presentAlert(title: error.message ?? "Some thing went wrong!", buttonTitle: "Close")
             }

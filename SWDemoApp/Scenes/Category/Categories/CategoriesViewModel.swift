@@ -12,7 +12,8 @@ protocol CategoriesViewDataSource {
     var categories: [Category] { get }
     var categoryHeaderModel: CategoryHeaderCellModel { get }
     var categoryCellModels: [CategoryCellModel] { get }
-    
+    var name: String { get }
+
     func getCategories(completion: @escaping (([Category]?) -> Void))
     func getCategoryCellModels(completion:@escaping (([CategoryCellModel]) -> Void))
 }
@@ -25,12 +26,13 @@ protocol CategoriesViewEventSource {
 protocol CategoriesViewProtocol: CategoriesViewDataSource, CategoriesViewEventSource {}
 
 final class CategoriesViewModel: BaseViewModel<CategoriesRouter>, CategoriesViewProtocol {
+    var name: String = ""
 
     var categories: [Category] = []
 
     var categoryCellModels: [CategoryCellModel] = []
     
-    var categoryHeaderModel = CategoryHeaderCellModel(name: "Alex")
+    lazy var categoryHeaderModel = CategoryHeaderCellModel(name: name)
     
     func didSelectItemAt(index: Int) {
         categoryCellModels[index].category.isSelected?.toggle()

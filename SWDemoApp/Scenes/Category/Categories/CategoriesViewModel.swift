@@ -30,7 +30,7 @@ final class CategoriesViewModel: BaseViewModel<CategoriesRouter>, CategoriesView
 
     var categoryCellModels: [CategoryCellModel] = []
     
-    var categoryHeaderModel = CategoryHeaderCellModel(title: "Hello, Alex!\nWhich are your favorite categories?")
+    var categoryHeaderModel = CategoryHeaderCellModel(name: "Alex")
     
     func didSelectItemAt(index: Int) {
         categoryCellModels[index].category.isSelected?.toggle()

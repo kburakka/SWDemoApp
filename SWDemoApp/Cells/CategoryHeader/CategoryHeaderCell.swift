@@ -13,8 +13,6 @@ class CategoryHeaderCell: UICollectionViewCell, ReusableView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .font(.omnesSemiBold, size: .xLarge)
-        label.textColor = .appShaft
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
@@ -38,6 +36,6 @@ class CategoryHeaderCell: UICollectionViewCell, ReusableView {
     
     func set(viewModel: CategoryHeaderCellProtocol) {
         self.viewModel = viewModel
-        titleLabel.text = viewModel.title
+        titleLabel.attributedText = viewModel.title
     }
 }
